@@ -9,9 +9,9 @@ or swap the import back as shown in the git history.
 
 Usage (example):
     export OPENAI_API_KEY="sk‑..."
-    python generate_rasa_files.py \
-        --csv /mnt/data/processed_interactions.csv \
-        --output_dir rasa_outputs \
+    python generate_rasa_gpt4o.py \
+        --csv data/letsgo_dialogues.csv \
+        --output_dir letsgo_gpto \
         --model gpt-4o \
         --max_context_tokens 128000 \
         --safety_margin 2000
