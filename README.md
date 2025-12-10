@@ -177,7 +177,7 @@ cd generate
 python <some_generation_script>.py --help
 
 # Example pattern:
-# python generate_letsgo_from_logs.py --input data/letsgo_dialogues.csv --outdir ../projects/letsgo_gpt4o/original
+# python generate_gpt4o.py --input data/letsgo_dialogues.csv --outdir ../projects/letsgo_gpt4o/original
 ```
 
 The exact script names and arguments are documented in the docstrings and `--help` of the files in `generate/`.
