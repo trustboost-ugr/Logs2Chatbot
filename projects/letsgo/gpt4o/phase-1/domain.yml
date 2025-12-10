@@ -1,0 +1,81 @@
+version: "3.1"
+intents:
+  - greet
+  - request_bus_schedule
+  - confirm
+  - deny
+  - provide_location
+  - provide_time
+  - goodbye
+  - help
+
+entities:
+  - location
+  - time
+
+slots:
+  destination:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: schedule_form
+            requested_slot: destination
+        not_intent:
+          - help
+          - deny
+          - goodbye
+  location:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: schedule_form
+            requested_slot: location
+        not_intent:
+          - help
+          - deny
+          - goodbye
+  time:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: schedule_form
+            requested_slot: time
+        not_intent:
+          - help
+          - deny
+          - goodbye
+
+forms:
+  schedule_form:
+    required_slots:
+      - destination
+      - location
+      - time
+
+responses:
+  utter_greet:
+    - text: "Welcome to the CMU Let's Go bus information system. To get help at any time, just say Help or press zero. What can I do for you?"
+
+  utter_goodbye:
+    - text: "Thank you for using the CMU Let's Go Bus Information System. Goodbye."
+
+  utter_ask_location:
+    - text: "Where do you want to leave from?"
+
+  utter_ask_destination:
+    - text: "Where do you want to go?"
+
+  utter_ask_time:
+    - text: "When do you want to travel?"
+
+  utter_help:
+    - text: "I can help you find bus schedules. Tell me your departure location, destination, and when you want to travel. For example: 'From {location} to {destination} at {time}.'"
+
+actions:
+  - action_provide_schedule

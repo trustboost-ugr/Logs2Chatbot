@@ -1,0 +1,245 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - (bien)venue
+    - bonjour
+    - salut
+
+- intent: deny
+  examples: |
+    - non
+    - non merci
+    - pas du tout
+    - je ne veux pas
+    - pas maintenant
+    - aucune
+    - pas pour l'instant
+    - pas besoin
+    - pas intéressé
+
+- intent: ask_animal_policy
+  examples: |
+    - Acceptez-vous les animaux ?
+    - Les chiens sont-ils autorisés ?
+    - Politique animaux
+
+#- intent: ask_cinema
+#  examples: |
+#    - Où se trouve le cinéma ?
+#    - Y a-t-il un cinéma à proximité ?
+
+- intent: request_hotel
+  examples: |
+    - Je cherche un hôtel
+    - Je voudrais un hôtel à Lyon
+    - Trouver un hôtel
+    - je veux réserver un hôtel à [Paris](city) [du 5 au 7 novembre](dates)
+    - réserver un hôtel à [Lyon](city) [la première semaine d’août](dates)
+    - un hôtel à [Nice](city) [du 10 au 12](dates) pour deux nuits
+    - je cherche un hôtel à [Bordeaux](city) [ce week-end](dates)
+    - je voudrais un hôtel à [Toulouse](city) [du 3 au 5 octobre](dates)
+    - trouver un hôtel à [Marseille](city) [du 15 au 18 septembre](dates)
+    - j’aimerais une chambre à [Strasbourg](city) [du 20 au 22 juin](dates)
+    - besoin d’un hôtel à [Nantes](city) [du 1er au 3 août](dates)
+    - on peut réserver à [Lille](city) [du 12 au 14 mai](dates) ?
+    - je veux une chambre d’hôtel à [Montpellier](city) [du 7 au 9](dates)
+    - je voudrais une chambre à [Chambéry](city) [vingt-neuf août](start_date) au [trente août](end_date)
+    - réserver à [Chalon-sur-Saône](city) [premier](start_date) au [trois décembre](end_date)
+
+- intent: request_price
+  examples: |
+    - Quel est le prix ?
+    - Combien coûte une chambre ?
+    - Tarif par nuit
+
+- intent: request_amenities
+  examples: |
+    - Quelles sont les commodités ?
+    - Y a-t-il une piscine ?
+    - Avez-vous un jacuzzi ?
+
+#- intent: request_details
+#  examples: |
+#    - Donnez-moi plus de détails sur cet hôtel
+#    - Informations sur l’hôtel
+#    - Adresse et catégorie
+
+- intent: request_availability
+  examples: |
+    - Y a-t-il des chambres disponibles ?
+    - Est-ce disponible à ces dates ?
+
+#- intent: request_reservation
+#  examples: |
+#    - Je souhaite réserver
+#    - Réserver cet hôtel
+
+#- intent: reserve_hotel
+#  examples: |
+#    - Je confirme la réservation
+#    - Oui, je réserve
+
+#- intent: inform_district
+#  examples: |
+#    - Dans le quartier Vieux Lyon
+#    - Proche de la Part-Dieu
+
+- intent: inform
+  examples: |
+    - Voilà les informations
+    - D’accord, c’est noté
+
+- intent: request_guide
+  examples: |
+    - Je souhaite écouter le guide
+    - Avez-vous un guide touristique ?
+
+- intent: goodbye
+  examples: |
+    - Au revoir
+    - Merci, au revoir
+
+#- intent: request_hotel_info
+#  examples: |
+#    - quelle information désirez-vous
+#    - je souhaite des détails
+#    - quelle information souhaitez-vous
+#    - quelle information désirez-vous
+#    - quelle information voulez-vous obtenir
+
+- intent: inform_city
+  examples: |
+    - à Lyon
+    - à la Chaise-Dieu en Auvergne
+    - à Chambéry
+    - à la Chai(se) euh trente et un août pardon à la Chaise-Dieu en Auvergne
+    - Paris
+    - Lyon
+    - Marseille
+    - Nice
+    - Bordeaux
+    - Nantes
+    - Toulouse
+    - Lille
+    - Strasbourg
+    - Montpellier
+    - à [Paris](city)
+    - à [Lyon](city)
+    - à [Nice](city)    
+
+- intent: inform_period
+  examples: |
+    - la quatrième semaine de septembre
+    - du vingt-neuf août au trente euh
+    - du lundi vingt-sept septembre au samedi deux octobre
+    - du vingt septembre au vingt-cinq
+
+#- intent: inform_neighborhood
+#  examples: |
+#    - à proximité
+#    - euh ben le quartier en fait ça va être à Lyon donc pour la fête du cheval
+#    - non en fait euh ça va être un hôtel à Lyon
+#    - euh le quartier en fait ça va être à Lyon donc pour la fête du cheval
+#    - euh tout d'abord je voudrais savoir s'il est près du festival de la Chaise-Dieu qui a eu lieu à cette période
+
+- intent: request_hotel_booking
+  examples: |
+    - j'aimerais effectuer une réservation de chambres
+    - je souhaite réserver une nuit d'hôtel
+    - je souhaite réserver un hôtel
+    - je souhaite réserver une chambre pour un couple un enfant et un animal
+    - je voudrais réserver un hôtel
+
+#- intent: request_hotel_pricing
+#  examples: |
+#    - oui j'aimerais connaître le prix s'il vous plaît
+#    - je peux savoir le prix
+
+#- intent: inform_hotel_preferences
+#  examples: |
+#    - il faut des chambres simples pour dix personnes
+#    - je cherche un hôtel où il y a du jacuzzi et une piscine et qui accepte les chiens
+#    - je souhaite euh une chambre qui soit à moins au maximum cinquante euros par euh par nuit proche d'un cinéma si possible proche du festival euh et puis voilà donc ça serait une chambre avec couple plus un enfant
+#    - euh je voudrais savoir s'il est près du festival de la Chaise-Dieu qui a eu lieu à cette période
+
+- intent: help
+  examples: |
+    - aide
+    - besoin d'aide
+    - tu fais quoi
+    - que peux-tu faire
+    - aide-moi s'il te plaît
+
+#- intent: inform_exact_dates
+#  examples: |
+#    - alors euh septembre donc hum du lundi vingt-sept septembre au samedi deux octobre
+#    - ça sera pour la quatrième semaine de septembre
+#    - du seize au trente et un août
+
+- intent: affirm
+  examples: |
+    - oui j'aimerais d'abord savoir si le Ibis i(l) y a jacuzzi piscine si ils acceptent les chiens
+    - oui est-ce qu'il y a une piscine ou un jacuzzi
+    - oui est-ce qu'il y a un jacuzzi
+    - oui
+    - oui !
+    - oui merci
+    - d'accord
+    - c'est bon
+    - parfait
+    - je confirme
+    - ça me va
+    - ok
+    - oui je prends
+
+- intent: help
+  examples: |
+    - pouvez-vous m'aider
+    - j'ai besoin d'aide
+    - aide moi s'il te plaît
+    
+- intent: inform_period
+  examples: |
+    - du [3 au 5 octobre](dates)
+    - du [10 au 12 novembre](dates)
+    - du [1er au 3 août](dates)
+    - [la quatrième semaine de septembre](dates)
+
+- intent: ask_amenities
+  examples: |
+    - Quelles sont les commodités disponibles ?
+    - Y a-t-il une piscine ou un jacuzzi ?
+    - Avez-vous des informations sur les commodités de l'hôtel ?
+
+#- intent: check_pets
+#  examples: |
+#    - Les animaux sont-ils autorisés dans l'hôtel ?
+#    - Acceptez-vous les animaux de compagnie ?
+#    - Quelle est la politique concernant les animaux domestiques ?
+
+- intent: ask_price
+  examples: |
+    - Quel est le tarif de la chambre ?
+    - Combien coûte une nuitée dans cet hôtel ?
+    - Pouvez-vous me donner des informations sur les prix ?
+
+- intent: request_booking
+  examples: |
+    - Je voudrais réserver une chambre d'hôtel.
+    - Pouvez-vous m'aider à faire une réservation ?
+    - Je souhaite effectuer une réservation pour un séjour.
+
+- lookup: city
+  examples: |
+    - Paris
+    - Lyon
+    - Marseille
+    - Nice
+    - Bordeaux
+    - Toulouse
+    - Nantes
+    - Lille
+    - Strasbourg
+    - Montpellier

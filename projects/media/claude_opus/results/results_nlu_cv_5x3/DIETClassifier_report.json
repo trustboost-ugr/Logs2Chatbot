@@ -1,0 +1,44 @@
+{
+  "city": {
+    "precision": 0.7142857142857143,
+    "recall": 0.5555555555555556,
+    "f1-score": 0.6250000000000001,
+    "support": 9,
+    "confused_with": {}
+  },
+  "end_date": {
+    "precision": 0.9090909090909091,
+    "recall": 0.6666666666666666,
+    "f1-score": 0.7692307692307692,
+    "support": 15,
+    "confused_with": {
+      "start_date": 4
+    }
+  },
+  "start_date": {
+    "precision": 0.7333333333333333,
+    "recall": 0.9166666666666666,
+    "f1-score": 0.8148148148148148,
+    "support": 12,
+    "confused_with": {}
+  },
+  "micro avg": {
+    "precision": 0.7878787878787878,
+    "recall": 0.7222222222222222,
+    "f1-score": 0.7536231884057971,
+    "support": 36
+  },
+  "macro avg": {
+    "precision": 0.7855699855699855,
+    "recall": 0.7129629629629629,
+    "f1-score": 0.7363485280151947,
+    "support": 36
+  },
+  "weighted avg": {
+    "precision": 0.8018037518037517,
+    "recall": 0.7222222222222222,
+    "f1-score": 0.7483677587844253,
+    "support": 36
+  },
+  "accuracy": 0.7868852459016393
+}

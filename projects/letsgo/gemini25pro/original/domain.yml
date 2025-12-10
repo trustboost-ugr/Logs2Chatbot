@@ -1,0 +1,104 @@
+version: "3.1"
+
+intents:
+  - request_bus_schedule
+  - inform
+  - affirm
+  - deny
+  - goodbye
+  - start_new_query
+  - request_next_bus
+  - request_previous_bus
+  - ask_help
+
+entities:
+  - bus_route
+  - location
+  - time
+
+slots:
+  bus_route:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: bus_route
+  origin:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: location
+      intent: inform
+  destination:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: location
+      intent: inform
+  time:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: time
+
+responses:
+  utter_greet:
+  - text: "Welcome to the CMU Let's Go bus information system. To get help at any time, just say Help or press zero."
+  utter_ask_what_can_i_do:
+  - text: "What can I do for you?"
+  utter_goodbye:
+  - text: "Thank you for using the cmu Let's Go Bus Information System. Goodbye."
+  utter_start_new_query:
+  - text: "Okay, let's start from the beginning."
+  utter_provide_help:
+  - text: "I am an automated spoken dialogue system that can give you schedule information for bus routes in Pittsburgh's East End. You can ask me about the following buses: 28X, 54C, 56U, 59U, 61A, 61B, 61C, 61D, 61F, 64A, 69A, and 501."
+  utter_searching:
+  - text: "Just a minute. Let me check that for you."
+  - text: "Hold on. I'll look that up."
+  utter_ask_rephrase:
+  - text: "Please use shorter answers because I have trouble understanding long sentences."
+  - text: "Can you rephrase that?"
+  utter_follow_up:
+  - text: "To get more information about buses related to this trip, you can say, when is the next bus, or, when is the previous bus. To ask about a different trip, you can say, start a new query. If you are finished, you can say goodbye."
+  utter_ok:
+  - text: "Okay"
+  - text: "Right"
+  - text: "Alright"
+  utter_give_example:
+  - text: "For example, you can say, when is the next 28X from DOWNTOWN to THE AIRPORT? or I'd like to go from MCKEESPORT to HOMESTEAD tomorrow at 10 a.m.."
+  utter_ask_confirm_start_over:
+  - text: "Are you sure you want to start over?"
+  utter_no_bus_found_at_time:
+  - text: "I'm sorry, but there is no bus that goes between {origin} and {destination} at that time."
+  utter_no_route_between_locations:
+  - text: "I'm sorry, I don't know any routes that go from {origin} to {destination}."
+  utter_unsupported_route:
+  - text: "I'm sorry but I do not have the schedule for the {bus_route}. The routes I currently cover are the following: 28X, 54C, 56U, 59U, 61A, 61B, 61C, 61D, 61F, 64A, 69A, and 501."
+  utter_unsupported_location:
+  - text: "I'm sorry but I do not have the schedule for buses serving {location}. Currently, I only cover some routes in the following neighborhoods: Downtown, Oakland, Shadyside, Squirrel Hill, Homestead, McKeesport, and the airport."
+  utter_same_origin_destination:
+  - text: "{origin} and {destination} are both the same stop. Please provide a different start or end point."
+  utter_ask_bus_route:
+  - text: "Which bus route are you interested in?"
+  utter_ask_origin:
+  - text: "Where do you wanna leave from?"
+  - text: "Where are you leaving from?"
+  utter_ask_destination:
+  - text: "Where do you want to go?"
+  - text: "What is your destination?"
+  utter_ask_time:
+  - text: "When do you want to travel?"
+  - text: "At what time would you like to travel?"
+
+actions:
+  - action_find_bus
+  - action_find_next_bus
+  - action_find_previous_bus
+  - action_reset_all_slots
+  - validate_bus_schedule_form
+
+forms:
+  bus_schedule_form:
+    required_slots:
+      - origin
+      - destination
+      - time

@@ -1,0 +1,52 @@
+version: "3.1"
+rules:
+  - rule: greet
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: help
+    steps:
+      - intent: help
+      - action: utter_help
+
+  - rule: goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  # Activate the form when user asks for a schedule
+  - rule: Activate schedule form
+    steps:
+      - intent: request_bus_schedule
+      - action: schedule_form
+      - active_loop: schedule_form
+
+  # Submit the form when all required slots are filled
+  - rule: Submit schedule form
+    condition:
+      - active_loop: schedule_form
+    steps:
+      - action: schedule_form
+      - active_loop: null
+      - action: action_provide_schedule
+
+  # Allow help within the form, then resume asking the next slot
+  - rule: Help during schedule form (resume)
+    condition:
+      - active_loop: schedule_form
+    steps:
+      - intent: help
+      - action: utter_help
+      - action: schedule_form
+      - active_loop: schedule_form
+
+  # Optional: cancel the form if the user says "no" while filling
+  - rule: Cancel schedule form
+    condition:
+      - active_loop: schedule_form
+    steps:
+      - intent: deny
+      - action: action_deactivate_loop
+      - active_loop: null
+      - action: utter_goodbye

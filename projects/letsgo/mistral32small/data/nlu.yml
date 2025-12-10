@@ -1,0 +1,221 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - Welcome to the CMU Let's Go bus information system.
+    - To get help at any time, just say Help or press zero.
+    - What can I do for you?
+
+- intent: ask_bus_schedule
+  examples: |
+    - I need the [28X](bus_number) from [downtown](location) to [the airport](location) at [5 a.m.](time)
+    - When is the next [61A](bus_number) from [Oakland](location) to [Carnegie Mellon](location)?
+    - [54C](bus_number) from [North Side](location) to [East Ohio Street](location) at [now](time)
+    - What bus schedule information are you looking for?
+    - For example, you can say, when is the next 28X from [DOWNTOWN](location) to [THE AIRPORT](location)? or I'd like to go from MCKEESPORT to HOMESTEAD tomorrow at 10 a.m..
+
+
+- intent: request_bus_schedule
+  examples: |
+    - I need the bus schedule
+    - Can you provide me with the bus schedule?
+    - I would like to know the bus schedule
+    - Please give me the bus schedule
+    - Where can I find the bus schedule?
+    - Tell me about the bus schedule
+
+- intent: inform
+  examples: |
+    - 54C
+    - SOUTH HILLS JUNCTION
+    - NORTH SIDE
+    - NOW
+    - BUS SCHEDULE
+    - THE NEW TO SQUIRREL HILL
+    - CMU
+    - [ONE A M](time) THAT
+    - WHEN IS THE PREVIOUS BUS WHAT IS THE PREVIOUS BUS
+    - WHEN IS NEXT BUS
+    - SCHEDULE
+    - WHEN IS THE NEXT BUS
+    - I NEED INFORMATION ON THE [56C](bus_number)
+    - [LEBANON ROAD](location) AND [NOBLE WATERFRONT](location)
+    - ALL THE WATERWORKS MALL IN HOEMSTEAD
+    - HOMESTEAD
+    - IN THE DOWNTOWN PITTSBURGH
+    - THE NEXT BUS FROM HOMESTEAD DOWNTOWN PITTSBURGH
+    - [ELEVEN O'CLOCK](time)
+    - MEAN B
+    - TO WOOD STREET
+    - LEAVING NORTH SIDE
+    - T ROBINSON
+    - THEM YOU DIDN'T EAST OHIO STREET
+    - TO POLISH HILL
+    - [THE AIRPORT](location)
+    - [the airport](location)
+    - [downtown](location)
+    - [north side](location)
+    - [CMU](location)
+    - [Carnegie Mellon](location)
+
+- intent: inform_departure_stop
+  examples: |
+    - Leaving from [NORTH SIDE](location)
+    - Leaving from [T ROBINSON](location)
+    - Leaving from [EAST OHIO STREET AT NASH ISLAND](location)
+    - Leaving from [WATERWORKS MALL IN HOMESTEAD](location)
+    - Leaving from [CMU](location)
+    - Leaving from [DOWNTOWN PITTSBURGH](location)
+    - Leaving from [PITTSBURGH INTERNATIONAL AIRPORT](location)
+
+- intent: inform_destination
+  examples: |
+    - Going to [NORTH SIDE](location)
+    - Going to [T ROBINSON](location)
+    - Going to [EAST OHIO STREET AT NASH ISLAND](location)
+    - Going to [WATERWORKS MALL IN HOMESTEAD](location)
+    - Going to [CMU](location)
+    - Going to [DOWNTOWN PITTSBURGH](location)
+    - Going to [THE AIRPORT](location)
+
+- intent: inform_travel_time
+  examples: |
+    - At [ELEVEN O'CLOCK](time)
+    - At [ONE A M](time)
+    - At [NOW](time)
+    - At [TEN A M](time)    
+    - At [SEVEN P M](time)
+    - At [EIGHT FORTY FIVE A M](time)
+    - At [SEVEN TWENTY FIVE P M](time)
+
+- intent: inform_bus_number
+  examples: |
+    - The [54C](bus_number)
+    - The [56C](bus_number)
+    - The [28X](bus_number)
+    - The [61A](bus_number)
+    - The [61B](bus_number)
+    - The [61C](bus_number)
+    - The [61D](bus_number)
+    - The [61F](bus_number)
+    - The [64A](bus_number)
+    - The [69A](bus_number)
+    - The [501](bus_number)
+
+- intent: affirm
+  examples: |
+    - YES
+    - YEAH
+    - SURE    
+    - THAT'S RIGHT
+    - CORRECT
+    - YOU GOT IT
+
+- intent: ask_bus_info
+  examples: |
+    - Can you give me information about the bus routes you cover?
+    - What bus routes do you cover?
+    - Which bus routes can you provide information for?
+    - Tell me about the bus routes you handle.
+    - What are the bus routes available through your service?
+    - Which bus routes do you have information on?
+
+- intent: ask_next_bus
+  examples: |
+    - When is the next bus?
+    - What time is the next bus?
+    - Can you tell me when the next bus is?
+    - I would like to know the time of the next bus.
+    - Could you provide information on the next bus?
+    - When does the next bus depart?
+
+- intent: ask_previous_bus
+  examples: |
+    - When is the previous bus?
+    - What time was the previous bus?
+    - Can you tell me when the previous bus was?
+    - I would like to know the time of the previous bus.
+    - Could you provide information on the previous bus?
+    - When did the previous bus depart?
+
+- intent: deny
+  examples: |
+    - NO
+    - NOPE
+    - NOT REALLY
+    - THAT'S WRONG
+    - INCORRECT
+    - YOU'RE WRONG
+
+- intent: goodbye
+  examples: |
+    - GOODBYE
+    - BYE
+    - SEE YOU LATER
+    - TALK TO YOU LATER
+    - I HAVE TO GO NOW
+    - THANKS, BYE
+
+- intent: start_new_query
+  examples: |
+    - I have another question
+    - I want to ask something else
+    - Let's start over
+    - I have a new question
+    - I want to make a new query
+    - Let's begin a new query
+
+- intent: help
+  examples: |
+    - I need help
+    - Can you help me?
+    - I want some assistance
+    - I need some help
+    - Can you assist me?
+    - I need assistance
+
+- lookup: bus_number
+  examples: |
+    - 28X
+    - 54C
+    - 56U
+    - 59U
+    - 61A
+    - 61B
+    - 61C
+    - 61D
+    - 61F
+    - 64
+    - 69A
+    - 501
+
+- lookup: location
+  examples: |
+    - downtown
+    - oakland
+    - shadyside
+    - squirrel hill
+    - greenfield
+    - south side
+    - north shore
+    - bloomfield
+    - lawrenceville
+    - strip district
+    - carnegie mellon
+    - cmu
+    - university of pittsburgh
+    - the airport
+    - station square
+    - waterfront
+    - homestead
+    - east liberty
+    - north hills
+    - south hills
+    - pittsburgh international airport
+
+- synonym: THE AIRPORT
+  examples: |
+    - the airport
+    - airport
+    - PIT

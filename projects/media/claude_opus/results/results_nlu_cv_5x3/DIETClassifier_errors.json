@@ -1,0 +1,212 @@
+[
+  {
+    "text": "du 27 septembre au 2 octobre",
+    "entities": [
+      {
+        "start": 3,
+        "end": 15,
+        "value": "27 septembre",
+        "entity": "start_date"
+      },
+      {
+        "start": 19,
+        "end": 28,
+        "value": "2 octobre",
+        "entity": "end_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "start_date",
+        "start": 3,
+        "end": 5,
+        "confidence_entity": 0.6654706001281738,
+        "value": "27",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "end_date",
+        "start": 19,
+        "end": 28,
+        "confidence_entity": 0.6516907811164856,
+        "value": "2 octobre",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "du 30 août au 31",
+    "entities": [
+      {
+        "start": 3,
+        "end": 10,
+        "value": "30 août",
+        "entity": "start_date"
+      },
+      {
+        "start": 14,
+        "end": 16,
+        "value": "31",
+        "entity": "end_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "start_date",
+        "start": 3,
+        "end": 10,
+        "confidence_entity": 0.6679556369781494,
+        "value": "30 août",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "start_date",
+        "start": 14,
+        "end": 16,
+        "confidence_entity": 0.4877784550189972,
+        "value": "31",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "la Chaise-Dieu en Auvergne",
+    "entities": [
+      {
+        "start": 0,
+        "end": 14,
+        "value": "la Chaise-Dieu",
+        "entity": "city"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "city",
+        "start": 18,
+        "end": 26,
+        "confidence_entity": 0.6233154535293579,
+        "value": "Auvergne",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "à Lyon",
+    "entities": [
+      {
+        "start": 2,
+        "end": 6,
+        "value": "Lyon",
+        "entity": "city"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "du 1 au 3 décembre",
+    "entities": [
+      {
+        "start": 3,
+        "end": 4,
+        "value": "1",
+        "entity": "start_date"
+      },
+      {
+        "start": 8,
+        "end": 18,
+        "value": "3 décembre",
+        "entity": "end_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "start_date",
+        "start": 3,
+        "end": 4,
+        "confidence_entity": 0.8038433790206909,
+        "value": "1",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "start_date",
+        "start": 8,
+        "end": 18,
+        "confidence_entity": 0.5692978501319885,
+        "value": "3 décembre",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Bourg-en-Bresse",
+    "entities": [
+      {
+        "start": 0,
+        "end": 15,
+        "value": "Bourg-en-Bresse",
+        "entity": "city"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "du 31 août au 2 septembre",
+    "entities": [
+      {
+        "start": 3,
+        "end": 10,
+        "value": "31 août",
+        "entity": "start_date"
+      },
+      {
+        "start": 14,
+        "end": 25,
+        "value": "2 septembre",
+        "entity": "end_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "start_date",
+        "start": 3,
+        "end": 10,
+        "confidence_entity": 0.9307309985160828,
+        "value": "31 août",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "start_date",
+        "start": 14,
+        "end": 15,
+        "confidence_entity": 0.7231042981147766,
+        "value": "2",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "la quatrième semaine de septembre",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "city",
+        "start": 0,
+        "end": 2,
+        "confidence_entity": 0.9430133104324341,
+        "value": "la",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "end_date",
+        "start": 24,
+        "end": 33,
+        "confidence_entity": 0.9939702749252319,
+        "value": "septembre",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  }
+]

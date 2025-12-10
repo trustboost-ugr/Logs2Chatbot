@@ -1,0 +1,92 @@
+version: "3.1"
+
+intents:
+  - greet
+  - request_bus_schedule
+  - provide_bus_route
+  - provide_departure  
+  - provide_destination
+  - provide_departure_time
+  - affirm
+  - deny
+  - request_next_bus
+  - request_previous_bus
+  - start_new_query
+  - goodbye
+
+entities:
+  - bus_route
+  - departure
+  - destination 
+  - departure_time
+
+slots:
+  bus_route:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: bus_route
+  departure:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: departure
+  destination:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: destination
+  departure_time:
+    type: text  
+    mappings:
+    - type: from_entity
+      entity: departure_time
+
+responses:
+  utter_greet:
+  - text: "Welcome to the CMU Let's Go bus information system. To get help at any time, just say Help or press zero. What can I do for you?"
+  
+  utter_ask_bus_route:
+  - text: "Which bus route do you want information for?"
+
+  utter_ask_departure:
+  - text: "Where are you leaving from?"
+
+  utter_ask_destination:  
+  - text: "Where do you want to go?"
+
+  utter_ask_departure_time:
+  - text: "When do you want to travel?"
+
+  utter_confirm_bus_route:
+  - text: "The {bus_route}. Is this correct?"
+
+  utter_confirm_departure:
+  - text: "Leaving from {departure}. Is this correct?"
+
+  utter_confirm_destination:
+  - text: "Going to {destination}. Is this correct?"
+
+  utter_confirm_departure_time:  
+  - text: "Leaving at {departure_time}. Is this correct?"
+
+  utter_provide_schedule:
+  - text: "There is a {bus_route} leaving {departure} at {departure_time}. It will arrive at {destination} at {arrival_time}."
+
+  utter_provide_next_bus:  
+  - text: "The next {bus_route} leaves {departure} at {next_departure_time}, and arrives at {destination} at {next_arrival_time}."
+
+  utter_provide_previous_bus:
+  - text: "There is a {bus_route} leaving {departure} at {previous_departure_time}. It will arrive at {destination} at {previous_arrival_time}."
+
+  utter_no_bus_found:
+  - text: "I'm sorry, but there is no bus that goes between {departure} and {destination} at that time."
+
+  utter_help:
+  - text: "I am an automated spoken dialogue system that can give you schedule information for bus routes in Pittsburgh's East End. You can ask me about the following buses: 28X, 54C, 56U, 59U, 61A, 61B, 61C, 61D, 61F, 64A, 69A, and 501."
+
+  utter_goodbye:
+  - text: "Thank you for using the CMU Let's Go Bus Information System. Goodbye."
+
+actions:
+  - action_provide_schedule

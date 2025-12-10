@@ -1,0 +1,115 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - bienvenue
+    - bonjour
+    - salut
+
+- intent: goodbye
+  examples: |
+    - au revoir
+    - merci au revoir
+    - bonne journée
+
+- intent: deny
+  examples: |
+    - non
+    - non merci
+
+- intent: request_hotel_search
+  examples: |
+    - je souhaite réserver une chambre
+    - j'aimerais effectuer une réservation de chambres
+    - réserver un hôtel
+    - je voudrais réserver un hôtel
+
+- intent: provide_city
+  examples: |
+    - à [Lyon](city)
+    - [la Chaise-Dieu](city) en Auvergne
+    - à [Chambéry](city)
+    - [Chalon-Sur-Saône](city)
+    - [Bourg-en-Bresse](city)
+    - [Chaumont](city)
+    - [Nevers](city)
+    - [Belfort](city)
+
+- intent: provide_district
+  examples: |
+    - à proximité
+    - le quartier en fait ça va être à Lyon donc pour la fête du cheval
+    - proche du festival de la Chaise-Dieu
+
+- intent: provide_dates
+  examples: |
+    - la quatrième semaine de septembre
+    - du [27 septembre](start_date) au [2 octobre](end_date)
+    - du [16](start_date) au [31 août](end_date)
+    - du [29 août](start_date) au [30 août](end_date)
+    - du [1](start_date) au [3 décembre](end_date)
+    - du [3](start_date) au [5 décembre](end_date)
+    - du [5](start_date) au [6 décembre](end_date)
+    - du [30 août](start_date) au [31](end_date)
+    - du [31 août](start_date) au [2 septembre](end_date)
+
+- intent: provide_nights
+  examples: |
+    - [6](nights) nuits
+    - [7](nights) nuits
+    - pour [2](nights) nuits
+
+- intent: provide_num_rooms
+  examples: |
+    - [10](num_rooms) chambres
+    - [1](num_rooms) chambre
+    - une chambre
+
+- intent: provide_num_guests
+  examples: |
+    - [10](num_guests) personnes
+    - [2](num_guests) adultes [1](num_guests) enfant
+    - pour [2](num_guests) personnes
+    - pour un couple un enfant
+
+- intent: ask_price  
+  examples: |
+    - j'aimerais connaître le prix
+    - je voudrais savoir le prix
+    - quel est le prix
+
+- intent: ask_amenities
+  examples: |
+    - est-ce qu'il y a une piscine ou un jacuzzi
+    - est-ce qu'il y a un terrain de tennis
+    - est-ce qu'il y a un restaurant
+    - quelles sont les commodités
+
+- intent: check_pool
+  examples: |
+    - est-ce qu'il y a une piscine
+    - y a-t-il une piscine
+
+- intent: check_jacuzzi
+  examples: |
+    - est-ce qu'il y a un jacuzzi
+    - y a-t-il un jacuzzi
+
+- intent: check_pets
+  examples: |
+    - est-ce qu'ils acceptent les chiens
+    - est-ce qu'on peut ramener un chien
+    - est-ce qu'il y a un accès animaux
+
+- intent: confirm
+  examples: |
+    - oui
+    - oui s'il vous plaît
+    - d'accord
+
+- intent: request_booking
+  examples: |
+    - je souhaite réserver
+    - je voudrais réserver alors
+    - je vais réserver

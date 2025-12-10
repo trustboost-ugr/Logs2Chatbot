@@ -1,0 +1,93 @@
+version: "3.1"
+
+nlu:
+- intent: request_bus_schedule
+  examples: |
+    - BUS SCHEDULE
+    - SCHEDULE
+    - I NEED THE BUS
+    - BUS
+    - I NEED THE SCHEDULE
+
+- intent: inform
+  examples: |
+    - [54C](bus_route)
+    - I need the [28X](bus_route)
+    - I NEED INFORMATION ON THE [56C](bus_route)
+    - [SOUTH HILLS JUNCTION](location)
+    - Leaving from [SOUTH HILLS JUNCTION](location)
+    - I want to go to [NORTH SIDE](location)
+    - Going to [SQUIRREL HILL](location)
+    - from [DOWNTOWN](location) to [THE AIRPORT](location)
+    - I'd like to go from [MCKEESPORT](location) to [HOMESTEAD](location)
+    - [NOW](time)
+    - [ONE A M](time)
+    - [ELEVEN O'CLOCK](time)
+    - [FIVE A M](time)
+    - [TEN P M](time)
+    - [NEXT BUS](time)
+    - I want the [next bus](time)
+    - WHEN IS THE [NEXT](time) [28X](bus_route) FROM [DOWNTOWN](location) TO [THE AIRPORT](location)
+    - I NEED THE [28X](bus_route) FROM [DOWNTOWN](location) TO [AIRPORT](location)
+    - [61A](bus_route) from [DOWNTOWN](location)
+    - from [OAKLAND](location) to [SWISSVALE](location)
+    - [TOMORROW](time) at [10 a.m.](time)
+    - [MIDNIGHT](time)
+
+- intent: affirm
+  examples: |
+    - YES
+    - YES FROM
+    - YEAH
+    - RIGHT
+    - CORRECT
+    - DTMF_ONE
+    - THAT IS CORRECT
+    - YES AGAIN
+
+- intent: deny
+  examples: |
+    - NO
+    - DTMF_THREE
+    - NO YOU DIDN'T
+
+- intent: goodbye
+  examples: |
+    - GOODBYE
+    - Thank you goodbye
+
+- intent: start_new_query
+  examples: |
+    - START A NEW QUERY
+    - NEW QUERY
+    - START NEW QUERY
+    - START OVER
+
+- intent: request_next_bus
+  examples: |
+    - WHEN IS THE NEXT BUS
+    - WHEN IS NEXT BUS
+    - NEXT BUS
+    - WHEN'S THE NEXT BUS
+
+- intent: request_previous_bus
+  examples: |
+    - WHEN IS THE PREVIOUS BUS
+    - PREVIOUS BUS
+    - WHEN IS PREVIOUS BUS
+    - GIVE ME A PREVIOUS BUS
+
+- intent: ask_help
+  examples: |
+    - HELP
+    - DTMF_ZERO
+
+- intent: out_of_scope
+  examples: |
+    - WHAT
+    - THE
+    - SHHHHH
+    - BITCH
+    - OKAY
+    - I DON'T KNOW
+    - HELLO

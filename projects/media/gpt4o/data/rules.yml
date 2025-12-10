@@ -1,0 +1,89 @@
+version: "3.1"
+
+rules:
+- rule: Price info (ask_price)
+  steps:
+  - intent: ask_price
+  - action: utter_ask_price
+
+- rule: Amenity QnA (check_pets)
+  steps:
+  - intent: check_pets
+  - action: utter_hotel_detail
+
+#- rule: User confirms (confirm)
+#  steps:
+#  - intent: confirm
+#  - action: utter_confirm_booking
+
+- rule: User declines (deny)
+  steps:
+  - intent: deny
+  - action: utter_suggest_alternative
+
+- rule: Goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Announce no availability
+  steps:
+  - intent: report_no_availability
+  - action: utter_no_availability
+
+- rule: Start booking form on hotel search
+  steps:
+  - intent: request_hotel_search
+  - action: booking_form
+  - active_loop: booking_form
+
+- rule: Submit booking form
+  condition:
+  - active_loop: booking_form
+  steps:
+  - action: booking_form
+  - active_loop: null
+  - action: utter_confirm_search
+  - action: utter_hotel_detail
+
+- rule: Start booking form on request_hotel_search
+  steps:
+  - intent: request_hotel_search
+  - action: booking_form
+  - active_loop: booking_form
+
+- rule: Start booking form on request_booking
+  steps:
+  - intent: request_booking
+  - action: booking_form
+  - active_loop: booking_form
+
+- rule: Start booking form on provide_dates
+  steps:
+  - intent: provide_dates
+  - action: booking_form
+  - active_loop: booking_form
+
+- rule: Start booking form on provide_city
+  steps:
+  - intent: provide_city
+  - action: booking_form
+  - active_loop: booking_form
+
+# ── Let the form keep running while active ──
+- rule: Continue booking form while active
+  condition:
+  - active_loop: booking_form
+  steps:
+  - action: booking_form
+  - active_loop: booking_form
+
+# ── When the form is done, turn it off and respond ──
+- rule: Submit booking form
+  condition:
+  - active_loop: booking_form
+  steps:
+  - action: booking_form
+  - active_loop: null
+  - action: utter_confirm_search
+  - action: utter_hotel_detail

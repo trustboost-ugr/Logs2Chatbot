@@ -1,0 +1,116 @@
+version: "3.1"
+
+stories:
+- story: greet and guide
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_guide
+
+- story: no guide
+  steps:
+  - intent: deny
+  - action: utter_ask_information
+
+- story: reserve hotel
+  steps:
+  - intent: reserve_hotel
+  - action: utter_ask_city
+  - intent: inform_city
+  - action: utter_ask_period
+  - intent: inform_period
+  - action: utter_ask_district
+  - intent: inform_district
+  - action: action_search_hotels
+  - action: utter_ask_reserve_or_more_info
+
+- story: ask price
+  steps:
+  - intent: ask_price
+  - action: action_provide_price
+  - action: utter_ask_reserve_or_more_info
+
+- story: ask amenities
+  steps:
+  - intent: ask_amenities
+  - action: action_provide_amenities
+  - action: utter_ask_more_info
+
+- story: reserve hotel with details
+  steps:
+  - intent: reserve_hotel
+  - action: utter_ask_city
+  - intent: inform_city
+  - action: utter_ask_period
+  - intent: inform_period
+  - action: utter_ask_district
+  - intent: inform_district
+  - action: action_search_hotels
+  - action: utter_ask_reserve_or_more_info
+  - intent: reserve_hotel
+  - action: utter_ask_room_type
+  - intent: inform_room_type
+  - action: utter_ask_number_of_rooms
+  - intent: inform_number_of_rooms
+  - action: utter_ask_number_of_adults
+  - intent: inform_number_of_adults
+  - action: utter_ask_number_of_children
+  - intent: inform_number_of_children
+  - action: utter_ask_number_of_nights
+  - intent: inform_number_of_nights
+  - action: action_check_availability
+  - action: utter_ask_confirm_reservation
+  - intent: affirm
+  - action: action_confirm_reservation
+  - action: utter_reservation_confirmation
+
+- story: no availability
+  steps:
+  - intent: reserve_hotel
+  - action: utter_ask_city
+  - intent: inform_city
+  - action: utter_ask_period
+  - intent: inform_period
+  - action: utter_ask_district
+  - intent: inform_district
+  - action: action_search_hotels
+  - action: utter_ask_reserve_or_more_info
+  - intent: reserve_hotel
+  - action: utter_ask_room_type
+  - intent: inform_room_type
+  - action: utter_ask_number_of_rooms
+  - intent: inform_number_of_rooms
+  - action: utter_ask_number_of_adults
+  - intent: inform_number_of_adults
+  - action: utter_ask_number_of_children
+  - intent: inform_number_of_children
+  - action: utter_ask_number_of_nights
+  - intent: inform_number_of_nights
+  - action: action_check_availability
+  - action: utter_no_availability
+  - action: utter_ask_reserve_or_more_info
+
+- story: no hotels
+  steps:
+  - intent: reserve_hotel
+  - action: utter_ask_city
+  - intent: inform_city
+  - action: utter_ask_period
+  - intent: inform_period
+  - action: utter_ask_district
+  - intent: inform_district
+  - action: action_search_hotels
+  - action: utter_no_hotels
+  - action: utter_ask_information
+
+- story: ask animal policy
+  steps:
+  - intent: ask_animal_policy
+  - action: action_provide_amenities
+  - action: utter_ask_more_info
+
+- story: ask cinema
+  steps:
+  - intent: ask_cinema
+  - action: action_provide_amenities
+  - action: utter_ask_more_info

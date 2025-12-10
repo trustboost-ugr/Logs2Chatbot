@@ -1,0 +1,143 @@
+```yaml
+version: "3.1"
+
+stories:
+- story: greet and ask for bus number
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: action_ask_bus_number
+
+- story: confirm bus number
+  steps:
+  - intent: inform_bus_number
+  - action: action_ask_bus_number_confirmation
+  - intent: affirm
+  - action: action_ask_departure_stop
+
+- story: deny bus number
+  steps:
+  - intent: inform_bus_number
+  - action: action_ask_bus_number_confirmation
+  - intent: deny
+  - action: action_ask_bus_number
+
+- story: ask for departure stop
+  steps:
+  - intent: inform_bus_number
+  - action: action_ask_bus_number_confirmation
+  - intent: affirm
+  - action: action_ask_departure_stop
+
+- story: confirm departure stop
+  steps:
+  - intent: inform_departure_stop
+  - action: action_ask_departure_stop_confirmation
+  - intent: affirm
+  - action: action_ask_destination
+
+- story: deny departure stop
+  steps:
+  - intent: inform_departure_stop
+  - action: action_ask_departure_stop_confirmation
+  - intent: deny
+  - action: action_ask_departure_stop
+
+- story: ask for destination
+  steps:
+  - intent: inform_departure_stop
+  - action: action_ask_departure_stop_confirmation
+  - intent: affirm
+  - action: action_ask_destination
+
+- story: confirm destination
+  steps:
+  - intent: inform_destination
+  - action: action_ask_destination_confirmation
+  - intent: affirm
+  - action: action_ask_travel_time
+
+- story: deny destination
+  steps:
+  - intent: inform_destination
+  - action: action_ask_destination_confirmation
+  - intent: deny
+  - action: action_ask_destination
+
+- story: ask for travel time
+  steps:
+  - intent: inform_destination
+  - action: action_ask_destination_confirmation
+  - intent: affirm
+  - action: action_ask_travel_time
+
+- story: confirm travel time
+  steps:
+  - intent: inform_travel_time
+  - action: action_ask_travel_time_confirmation
+  - intent: affirm
+  - action: action_search_bus_schedule
+
+- story: deny travel time
+  steps:
+  - intent: inform_travel_time
+  - action: action_ask_travel_time_confirmation
+  - intent: deny
+  - action: action_ask_travel_time
+
+- story: search bus schedule
+  steps:
+  - intent: inform_travel_time
+  - action: action_ask_travel_time_confirmation
+  - intent: affirm
+  - action: action_search_bus_schedule
+  - action: action_ask_next_previous_bus
+
+- story: ask for next bus
+  steps:
+  - intent: ask_next_bus
+  - action: action_search_next_bus
+  - action: action_ask_next_previous_bus
+
+- story: ask for previous bus
+  steps:
+  - intent: ask_previous_bus
+  - action: action_search_previous_bus
+  - action: action_ask_next_previous_bus
+
+- story: start new query
+  steps:
+  - intent: start_new_query
+  - action: action_ask_bus_number
+
+- story: ask for help
+  steps:
+  - intent: help
+  - action: utter_help
+  - action: action_ask_bus_number
+
+- story: handle unknown bus
+  steps:
+  - intent: inform_bus_number
+  - action: action_ask_bus_number_confirmation
+  - intent: affirm
+  - action: action_handle_unknown_bus
+  - action: action_ask_bus_number
+
+- story: handle unknown stop
+  steps:
+  - intent: inform_departure_stop
+  - action: action_ask_departure_stop_confirmation
+  - intent: affirm
+  - action: action_handle_unknown_stop
+  - action: action_ask_departure_stop
+
+- story: handle no bus found
+  steps:
+  - intent: inform_travel_time
+  - action: action_ask_travel_time_confirmation
+  - intent: affirm
+  - action: action_search_bus_schedule
+  - action: action_handle_no_bus_found
+  - action: action_ask_bus_number
+```

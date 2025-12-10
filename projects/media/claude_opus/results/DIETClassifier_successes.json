@@ -1,0 +1,731 @@
+[
+  {
+    "text": "à Lyon",
+    "entities": [
+      {
+        "start": 2,
+        "end": 6,
+        "value": "Lyon",
+        "entity": "city"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "city",
+        "start": 2,
+        "end": 6,
+        "confidence_entity": 0.9981120824813843,
+        "value": "Lyon",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "la Chaise-Dieu en Auvergne",
+    "entities": [
+      {
+        "start": 0,
+        "end": 14,
+        "value": "la Chaise-Dieu",
+        "entity": "city"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "city",
+        "start": 0,
+        "end": 14,
+        "confidence_entity": 0.9776346683502197,
+        "value": "la Chaise-Dieu",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "à Chambéry",
+    "entities": [
+      {
+        "start": 2,
+        "end": 10,
+        "value": "Chambéry",
+        "entity": "city"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "city",
+        "start": 2,
+        "end": 10,
+        "confidence_entity": 0.9976608753204346,
+        "value": "Chambéry",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Chalon-Sur-Saône",
+    "entities": [
+      {
+        "start": 0,
+        "end": 16,
+        "value": "Chalon-Sur-Saône",
+        "entity": "city"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "city",
+        "start": 0,
+        "end": 16,
+        "confidence_entity": 0.9988881945610046,
+        "value": "Chalon-Sur-Saône",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Bourg-en-Bresse",
+    "entities": [
+      {
+        "start": 0,
+        "end": 15,
+        "value": "Bourg-en-Bresse",
+        "entity": "city"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "city",
+        "start": 0,
+        "end": 15,
+        "confidence_entity": 0.9989560842514038,
+        "value": "Bourg-en-Bresse",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Chaumont",
+    "entities": [
+      {
+        "start": 0,
+        "end": 8,
+        "value": "Chaumont",
+        "entity": "city"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "city",
+        "start": 0,
+        "end": 8,
+        "confidence_entity": 0.9984046816825867,
+        "value": "Chaumont",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Nevers",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "Nevers",
+        "entity": "city"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "city",
+        "start": 0,
+        "end": 6,
+        "confidence_entity": 0.9983543157577515,
+        "value": "Nevers",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Belfort",
+    "entities": [
+      {
+        "start": 0,
+        "end": 7,
+        "value": "Belfort",
+        "entity": "city"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "city",
+        "start": 0,
+        "end": 7,
+        "confidence_entity": 0.9980185031890869,
+        "value": "Belfort",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "du 27 septembre au 2 octobre",
+    "entities": [
+      {
+        "start": 3,
+        "end": 15,
+        "value": "27 septembre",
+        "entity": "start_date"
+      },
+      {
+        "start": 19,
+        "end": 28,
+        "value": "2 octobre",
+        "entity": "end_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "start_date",
+        "start": 3,
+        "end": 15,
+        "confidence_entity": 0.6349587440490723,
+        "value": "27 septembre",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "end_date",
+        "start": 19,
+        "end": 28,
+        "confidence_entity": 0.9642717838287354,
+        "value": "2 octobre",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "du 16 au 31 août",
+    "entities": [
+      {
+        "start": 3,
+        "end": 5,
+        "value": "16",
+        "entity": "start_date"
+      },
+      {
+        "start": 9,
+        "end": 16,
+        "value": "31 août",
+        "entity": "end_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "start_date",
+        "start": 3,
+        "end": 5,
+        "confidence_entity": 0.3573821485042572,
+        "value": "16",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "end_date",
+        "start": 9,
+        "end": 16,
+        "confidence_entity": 0.9459380507469177,
+        "value": "31 août",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "du 29 août au 30 août",
+    "entities": [
+      {
+        "start": 3,
+        "end": 10,
+        "value": "29 août",
+        "entity": "start_date"
+      },
+      {
+        "start": 14,
+        "end": 21,
+        "value": "30 août",
+        "entity": "end_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "start_date",
+        "start": 3,
+        "end": 10,
+        "confidence_entity": 0.37121686339378357,
+        "value": "29 août",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "end_date",
+        "start": 14,
+        "end": 21,
+        "confidence_entity": 0.977796733379364,
+        "value": "30 août",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "du 1 au 3 décembre",
+    "entities": [
+      {
+        "start": 3,
+        "end": 4,
+        "value": "1",
+        "entity": "start_date"
+      },
+      {
+        "start": 8,
+        "end": 18,
+        "value": "3 décembre",
+        "entity": "end_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "start_date",
+        "start": 3,
+        "end": 4,
+        "confidence_entity": 0.7588267922401428,
+        "value": "1",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "end_date",
+        "start": 8,
+        "end": 18,
+        "confidence_entity": 0.9160029292106628,
+        "value": "3 décembre",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "du 3 au 5 décembre",
+    "entities": [
+      {
+        "start": 3,
+        "end": 4,
+        "value": "3",
+        "entity": "start_date"
+      },
+      {
+        "start": 8,
+        "end": 18,
+        "value": "5 décembre",
+        "entity": "end_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "start_date",
+        "start": 3,
+        "end": 4,
+        "confidence_entity": 0.7588267922401428,
+        "value": "3",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "end_date",
+        "start": 8,
+        "end": 18,
+        "confidence_entity": 0.9160029292106628,
+        "value": "5 décembre",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "du 5 au 6 décembre",
+    "entities": [
+      {
+        "start": 3,
+        "end": 4,
+        "value": "5",
+        "entity": "start_date"
+      },
+      {
+        "start": 8,
+        "end": 18,
+        "value": "6 décembre",
+        "entity": "end_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "start_date",
+        "start": 3,
+        "end": 4,
+        "confidence_entity": 0.7588267922401428,
+        "value": "5",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "end_date",
+        "start": 8,
+        "end": 18,
+        "confidence_entity": 0.9160029292106628,
+        "value": "6 décembre",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "du 30 août au 31",
+    "entities": [
+      {
+        "start": 3,
+        "end": 10,
+        "value": "30 août",
+        "entity": "start_date"
+      },
+      {
+        "start": 14,
+        "end": 16,
+        "value": "31",
+        "entity": "end_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "start_date",
+        "start": 3,
+        "end": 10,
+        "confidence_entity": 0.596242368221283,
+        "value": "30 août",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "end_date",
+        "start": 14,
+        "end": 16,
+        "confidence_entity": 0.6191283464431763,
+        "value": "31",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "du 31 août au 2 septembre",
+    "entities": [
+      {
+        "start": 3,
+        "end": 10,
+        "value": "31 août",
+        "entity": "start_date"
+      },
+      {
+        "start": 14,
+        "end": 25,
+        "value": "2 septembre",
+        "entity": "end_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "start_date",
+        "start": 3,
+        "end": 10,
+        "confidence_entity": 0.6262809038162231,
+        "value": "31 août",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "end_date",
+        "start": 14,
+        "end": 25,
+        "confidence_entity": 0.9665919542312622,
+        "value": "2 septembre",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "6 nuits",
+    "entities": [
+      {
+        "start": 0,
+        "end": 1,
+        "value": "6",
+        "entity": "nights"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nights",
+        "start": 0,
+        "end": 1,
+        "confidence_entity": 0.9918007254600525,
+        "value": "6",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "7 nuits",
+    "entities": [
+      {
+        "start": 0,
+        "end": 1,
+        "value": "7",
+        "entity": "nights"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nights",
+        "start": 0,
+        "end": 1,
+        "confidence_entity": 0.9918007254600525,
+        "value": "7",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "pour 2 nuits",
+    "entities": [
+      {
+        "start": 5,
+        "end": 6,
+        "value": "2",
+        "entity": "nights"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nights",
+        "start": 5,
+        "end": 6,
+        "confidence_entity": 0.9959490299224854,
+        "value": "2",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "10 chambres",
+    "entities": [
+      {
+        "start": 0,
+        "end": 2,
+        "value": "10",
+        "entity": "num_rooms"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "num_rooms",
+        "start": 0,
+        "end": 2,
+        "confidence_entity": 0.9931094646453857,
+        "value": "10",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "1 chambre",
+    "entities": [
+      {
+        "start": 0,
+        "end": 1,
+        "value": "1",
+        "entity": "num_rooms"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "num_rooms",
+        "start": 0,
+        "end": 1,
+        "confidence_entity": 0.9936270713806152,
+        "value": "1",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "10 personnes",
+    "entities": [
+      {
+        "start": 0,
+        "end": 2,
+        "value": "10",
+        "entity": "num_guests"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "num_guests",
+        "start": 0,
+        "end": 2,
+        "confidence_entity": 0.9956707954406738,
+        "value": "10",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "2 adultes 1 enfant",
+    "entities": [
+      {
+        "start": 0,
+        "end": 1,
+        "value": "2",
+        "entity": "num_guests"
+      },
+      {
+        "start": 10,
+        "end": 11,
+        "value": "1",
+        "entity": "num_guests"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "num_guests",
+        "start": 0,
+        "end": 1,
+        "confidence_entity": 0.9958384037017822,
+        "value": "2",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "num_guests",
+        "start": 10,
+        "end": 11,
+        "confidence_entity": 0.9993294477462769,
+        "value": "1",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "pour 2 personnes",
+    "entities": [
+      {
+        "start": 5,
+        "end": 6,
+        "value": "2",
+        "entity": "num_guests"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "num_guests",
+        "start": 5,
+        "end": 6,
+        "confidence_entity": 0.9991258978843689,
+        "value": "2",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  }
+]

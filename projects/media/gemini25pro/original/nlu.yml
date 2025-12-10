@@ -1,0 +1,148 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - bonjour
+    - salut
+    - coucou
+    - hello
+
+- intent: goodbye
+  examples: |
+    - au revoir
+    - merci au revoir
+    - à bientôt
+    - c'est parfait merci
+    - non ça sera tout
+    - laissez tomber merci beaucoup
+    - bon ben tant pis alors
+
+- intent: confirm
+  examples: |
+    - oui
+    - oui s'il vous plaît
+    - tout à fait
+    - d'accord
+    - c'est ça
+    - oui je prends
+    - je prends la réservation
+    - oui c'est très bien
+
+- intent: deny
+  examples: |
+    - non
+    - non merci
+    - non finalement
+    - je ne vais rien prendre
+    - je ne souhaite pas réserver
+    - non c'est trop cher
+
+- intent: request_hotel_search
+  examples: |
+    - j'aimerais effectuer une réservation de chambres
+    - je souhaite réserver un hôtel
+    - réserver un hôtel
+    - louer un hôtel
+    - je voudrais une réservation d'hôtel
+    - ce serait pour réserver une semaine
+
+- intent: inform
+  examples: |
+    - à [Lyon](city)
+    - je souhaite réserver une nuit d'hôtel à [Chambéry](city)
+    - ça sera du [vingt-neuf août](start_date) au [trente](end_date)
+    - pour la [quatrième semaine de septembre](date_reference)
+    - [six nuits](nights)
+    - il faut des chambres simples pour [dix personnes](num_adults)
+    - [dix](num_rooms) chambres
+    - je souhaite réserver une chambre pour [un couple](num_adults) [un enfant](num_children) et un [animal](pets) à [la Chaise-Dieu](city) en [Auvergne](district) du [seize](start_date) au [trente et un août](end_date) pour [sept nuits](nights)
+    - une chambre qui soit à [moins de cinquante euros](price_max)
+    - je voudrais réserver un hôtel du [seize](start_date) au [trente et un août](end_date) à [la Chaise-Dieu](city)
+    - à [Chalon-Sur-Saône](city) du [premier](start_date) au [trois décembre](end_date)
+    - une [chambre individuelle](room_type)
+    - je voudrais une chambre d'hôtel à [Chaumont](city) du [cinq](start_date) au [six décembre](end_date)
+    - à [Chambéry](city) à [Nevers](city) et à [Belfort](city)
+    - une chambre pour [deux personnes](num_adults)
+    - [pas d'enfants](num_children)
+    - une chambre [non-fumeurs](room_type)
+    - je voudrais réserver une nuit à [Chambéry](city) du [vingt-neuf](start_date) au [trente août deux mille quatre](end_date) pour [deux personnes](num_adults)
+    - trois chambres pour [trois personnes individuelles](num_adults) au [mois de mai](date_reference)
+    - à [Nice](city)
+    - un prix d'hôtel à peu près [cent dix euros](price_max) la chambre
+    - près de la [plage](district)
+    - du [dix](start_date) au [vingt-quatre juillet](end_date) soit [quatorze nuits](nights) à [Menton](city)
+    - près de l'[autoroute](district)
+    - un prix inférieur à [quatre-vingts euros](price_max)
+    - la [première semaine du mois d'août](date_reference)
+    - [deux chambres](num_rooms) donc pour [deux couples](num_adults)
+    - [quatre adultes](num_adults) et il y aura également [un enfant](num_children)
+    - pendant les [vacances de Noël](date_reference) à [Carcassonne](city)
+    - [quinze jours](nights)
+
+- intent: ask_price
+  examples: |
+    - j'aimerais connaître le prix s'il vous plaît
+    - quel est le prix
+    - à combien est la nuit
+    - quel est le prix de la chambre
+    - je voudrais savoir le prix de chaque chambre
+    - donnez-moi le prix du dernier hôtel
+
+- intent: ask_amenities
+  examples: |
+    - quelles sont les commodités
+    - est-ce qu'il y a une piscine ou un jacuzzi
+    - est-ce qu'ils ont jacuzzi et piscine ces hôtels
+    - je voudrais savoir s'il est près du festival
+    - est-ce qu'il y a une salle de musculation et un accès pour handicapés
+
+- intent: check_pool
+  examples: |
+    - est-ce qu'il y a une piscine
+    - y a-t-il une piscine
+    - je souhaite savoir s'il y a une piscine
+
+- intent: check_jacuzzi
+  examples: |
+    - est-ce qu'il y a un jacuzzi
+    - il y a du jacuzzi
+
+- intent: check_pets
+  examples: |
+    - si ils acceptent les chiens
+    - est-ce qu'on peut ramener un chien
+    - est-ce qu'il y a un accès animaux
+    - est-ce que l'un de ces hôtels accueille les animaux
+
+- intent: check_tennis
+  examples: |
+    - il y a un terrain de tennis
+    - l'un des deux a-t-il un tennis
+
+- intent: check_gym
+  examples: |
+    - y a-t-il des salles de musculation
+    - je souhaiterais une salle de musculation
+
+- intent: check_restaurant
+  examples: |
+    - est-ce qu'il y a un restaurant
+    - je souhaiterais qu'il soit proche d'un restaurant
+
+- intent: request_booking
+  examples: |
+    - souhaitez-vous réserver dans cet hôtel oui
+    - je souhaite réserver à Sofitel
+    - je voudrais réserver alors
+    - je vais prendre la réservation
+    - je réserve dans Ibis
+    - oui je réserve
+
+- intent: select_hotel
+  examples: |
+    - oui voir au [Mercure](hotel_name) s'il y a de la place
+    - on va essayer l'[Ibis](hotel_name) alors
+    - je vais prendre une réservation pour l'hôtel qui est à [quatre-vingts euros](price_max)
+    - je vais prendre [Ibis hôtel](hotel_name)
+    - je vais prendre le [premier](hotel_name)
+    - dans le [deuxième hôtel](hotel_name)

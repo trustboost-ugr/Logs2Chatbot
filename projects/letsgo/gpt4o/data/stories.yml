@@ -1,0 +1,25 @@
+version: "3.1"
+stories:
+- story: schedule via form (happy path)
+  steps:
+    - intent: request_bus_schedule
+    - action: schedule_form
+    - active_loop: schedule_form
+    - action: schedule_form
+    - active_loop: null
+    - action: utter_schedule_result
+
+- story: greet + request (form)
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: request_bus_schedule
+    - action: schedule_form
+    - active_loop: schedule_form
+
+- story: help and goodbye
+  steps:
+    - intent: help
+    - action: utter_help
+    - intent: goodbye
+    - action: utter_goodbye

@@ -1,0 +1,162 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - (bien)venue
+    - bonjour
+    - salut
+
+- intent: deny
+  examples: |
+    - non
+    - non merci
+    - pas du tout
+
+- intent: request_hotel_info
+  examples: |
+    - quelle information désirez-vous
+    - je souhaite des détails
+    - quelle information souhaitez-vous
+    - quelle information désirez-vous
+    - quelle information voulez-vous obtenir
+
+- intent: inform_city
+  examples: |
+    - à Lyon
+    - à la Chaise-Dieu en Auvergne
+    - à Chambéry
+    - à la Chai(se) euh trente et un août pardon à la Chaise-Dieu en Auvergne
+
+- intent: inform_period
+  examples: |
+    - la quatrième semaine de septembre
+    - du vingt-neuf août au trente euh
+    - du seize au trente et un août
+    - du lundi vingt-sept septembre au samedi deux octobre
+    - du vingt septembre au vingt-cinq
+
+- intent: inform_neighborhood
+  examples: |
+    - à proximité
+    - euh ben le quartier en fait ça va être à Lyon donc pour la fête du cheval
+    - non en fait euh ça va être un hôtel à Lyon
+    - euh le quartier en fait ça va être à Lyon donc pour la fête du cheval
+    - euh tout d'abord je voudrais savoir s'il est près du festival de la Chaise-Dieu qui a eu lieu à cette période
+
+- intent: request_hotel_booking
+  examples: |
+    - j'aimerais effectuer une réservation de chambres
+    - je souhaite réserver une nuit d'hôtel
+    - je souhaite réserver un hôtel
+    - je souhaite réserver une chambre pour un couple un enfant et un animal
+    - je voudrais réserver un hôtel
+
+- intent: request_hotel_pricing
+  examples: |
+    - oui j'aimerais connaître le prix s'il vous plaît
+    - je peux savoir le prix
+    - alors savoir si il accepte les chiens et s'il est près d'une salle de cinéma
+
+- intent: inform_hotel_preferences
+  examples: |
+    - il faut des chambres simples pour dix personnes
+    - je cherche un hôtel où il y a du jacuzzi et une piscine et qui accepte les chiens
+    - je souhaite euh une chambre qui soit à moins au maximum cinquante euros par euh par nuit proche d'un cinéma si possible proche du festival euh et puis voilà donc ça serait une chambre avec couple plus un enfant
+    - euh je voudrais savoir s'il est près du festival de la Chaise-Dieu qui a eu lieu à cette période
+    - euh tout d'abord je voudrais savoir s'il est près du festival de la Chaise-Dieu qui a eu lieu à cette période
+
+- intent: inform_number_of_rooms
+  examples: |
+    - dix
+    - une chambre
+    - une chambre pour un couple avec un enfant
+    - une chambre pour un couple avec un enfant
+
+- intent: inform_number_of_children
+  examples: |
+    - zéro
+    - un
+    - un enfant
+
+- intent: inform_exact_dates
+  examples: |
+    - alors euh septembre donc hum du lundi vingt-sept septembre au samedi deux octobre
+    - ça sera pour la quatrième semaine de septembre
+    - du seize au trente et un août
+
+- intent: request_hotel_amenities
+  examples: |
+    - euh oui mais j'aimerais d'abord savoir si le Ibis i(l) y a jacuzzi piscine si ils acceptent les chiens
+    - et est-ce qu'il y a une piscine ou un jacuzzi
+    - est-ce qu'il y a un jacuzzi
+    - et est-ce qu'il y a la piscine à Sofitel et à Mercure
+    - alors savoir si il accepte les chiens et s'il est près d'une salle de cinéma
+
+- intent: affirm
+  examples: |
+    - oui
+    - oui j'aimerais connaître le prix s'il vous plaît
+    - oui j'aimerais d'abord savoir si le Ibis i(l) y a jacuzzi piscine si ils acceptent les chiens
+    - oui est-ce qu'il y a une piscine ou un jacuzzi
+    - oui est-ce qu'il y a un jacuzzi
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui
+    - oui

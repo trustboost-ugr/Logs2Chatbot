@@ -1,0 +1,138 @@
+[
+  {
+    "text": "la Chaise-Dieu en Auvergne",
+    "intent": "provide_city",
+    "intent_prediction": {
+      "name": "provide_city",
+      "confidence": 0.9995802044868469
+    }
+  },
+  {
+    "text": "à Chambéry",
+    "intent": "provide_city",
+    "intent_prediction": {
+      "name": "provide_city",
+      "confidence": 0.9999998807907104
+    }
+  },
+  {
+    "text": "du 1 au 3 décembre",
+    "intent": "provide_dates",
+    "intent_prediction": {
+      "name": "provide_dates",
+      "confidence": 1.0
+    }
+  },
+  {
+    "text": "du 5 au 6 décembre",
+    "intent": "provide_dates",
+    "intent_prediction": {
+      "name": "provide_dates",
+      "confidence": 1.0
+    }
+  },
+  {
+    "text": "à Lyon",
+    "intent": "provide_city",
+    "intent_prediction": {
+      "name": "provide_city",
+      "confidence": 0.9999959468841553
+    }
+  },
+  {
+    "text": "Chalon-Sur-Saône",
+    "intent": "provide_city",
+    "intent_prediction": {
+      "name": "provide_city",
+      "confidence": 1.0
+    }
+  },
+  {
+    "text": "du 27 septembre au 2 octobre",
+    "intent": "provide_dates",
+    "intent_prediction": {
+      "name": "provide_dates",
+      "confidence": 1.0
+    }
+  },
+  {
+    "text": "du 3 au 5 décembre",
+    "intent": "provide_dates",
+    "intent_prediction": {
+      "name": "provide_dates",
+      "confidence": 1.0
+    }
+  },
+  {
+    "text": "Nevers",
+    "intent": "provide_city",
+    "intent_prediction": {
+      "name": "provide_city",
+      "confidence": 0.9999983310699463
+    }
+  },
+  {
+    "text": "Belfort",
+    "intent": "provide_city",
+    "intent_prediction": {
+      "name": "provide_city",
+      "confidence": 0.9999990463256836
+    }
+  },
+  {
+    "text": "la quatrième semaine de septembre",
+    "intent": "provide_dates",
+    "intent_prediction": {
+      "name": "provide_dates",
+      "confidence": 0.983558714389801
+    }
+  },
+  {
+    "text": "Bourg-en-Bresse",
+    "intent": "provide_city",
+    "intent_prediction": {
+      "name": "provide_city",
+      "confidence": 0.9999879598617554
+    }
+  },
+  {
+    "text": "du 16 au 31 août",
+    "intent": "provide_dates",
+    "intent_prediction": {
+      "name": "provide_dates",
+      "confidence": 1.0
+    }
+  },
+  {
+    "text": "du 31 août au 2 septembre",
+    "intent": "provide_dates",
+    "intent_prediction": {
+      "name": "provide_dates",
+      "confidence": 1.0
+    }
+  },
+  {
+    "text": "Chaumont",
+    "intent": "provide_city",
+    "intent_prediction": {
+      "name": "provide_city",
+      "confidence": 1.0
+    }
+  },
+  {
+    "text": "du 29 août au 30 août",
+    "intent": "provide_dates",
+    "intent_prediction": {
+      "name": "provide_dates",
+      "confidence": 1.0
+    }
+  },
+  {
+    "text": "du 30 août au 31",
+    "intent": "provide_dates",
+    "intent_prediction": {
+      "name": "provide_dates",
+      "confidence": 1.0
+    }
+  }
+]

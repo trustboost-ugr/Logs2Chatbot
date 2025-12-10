@@ -1,0 +1,186 @@
+version: "3.1"
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- goodbye
+- confirm
+- deny
+- request_hotel_search
+- inform
+- ask_price
+- ask_amenities
+- check_pool
+- check_jacuzzi
+- check_pets
+- check_tennis
+- check_gym
+- check_restaurant
+- request_booking
+- select_hotel
+entities:
+- city
+- district
+- start_date
+- end_date
+- date_reference
+- nights
+- num_rooms
+- num_adults
+- num_children
+- hotel_name
+- price_max
+- pets
+- room_type
+slots:
+  city:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: city
+  district:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: district
+  start_date:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: start_date
+  end_date:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: end_date
+  date_reference:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: date_reference
+  nights:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: nights
+  num_rooms:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: num_rooms
+  num_adults:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: num_adults
+  num_children:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: num_children
+  hotel_name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: hotel_name
+  price_max:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: price_max
+  wants_pool:
+    type: bool
+    influence_conversation: true
+    mappings:
+    - type: from_intent
+      value: true
+      intent: check_pool
+  wants_jacuzzi:
+    type: bool
+    influence_conversation: true
+    mappings:
+    - type: from_intent
+      value: true
+      intent: check_jacuzzi
+  wants_pets:
+    type: bool
+    influence_conversation: true
+    mappings:
+    - type: from_intent
+      value: true
+      intent: check_pets
+  wants_tennis:
+    type: bool
+    influence_conversation: true
+    mappings:
+    - type: from_intent
+      value: true
+      intent: check_tennis
+  wants_gym:
+    type: bool
+    influence_conversation: true
+    mappings:
+    - type: from_intent
+      value: true
+      intent: check_gym
+responses:
+  utter_greet:
+  - text: "Bienvenue sur le serveur MEDIA, système d'informations touristiques et de réservation d'hôtel."
+  utter_ask_goal:
+  - text: "Quelle information désirez-vous ?"
+  - text: "Que désirez-vous savoir ?"
+  utter_ask_city:
+  - text: "Dans quelle ville souhaitez-vous séjourner ?"
+  - text: "Indiquez le lieu où vous souhaitez aller."
+  utter_ask_dates:
+  - text: "À quelle période souhaitez-vous séjourner ?"
+  - text: "Quelles sont vos dates de séjour ?"
+  utter_ask_num_rooms:
+  - text: "Combien de chambres souhaitez-vous réserver ?"
+  utter_ask_num_guests:
+  - text: "Pour combien de personnes ?"
+  - text: "Combien d'adultes sont concernés ?"
+  utter_please_wait:
+  - text: "Veuillez patienter, nous procédons à votre recherche."
+  utter_present_options:
+  - text: "J'ai trouvé des hôtels correspondant à votre demande. Souhaitez-vous réserver ou obtenir des informations supplémentaires ?"
+  utter_no_hotels_found:
+  - text: "Je suis désolé, je n'ai pas d'hôtels correspondant à vos critères."
+  - text: "Il n'y a pas d'hôtels satisfaisant à vos critères aux dates demandées."
+  utter_no_availability:
+  - text: "Désolé, il ne reste pas de chambres libres dans cet hôtel."
+  - text: "Cet hôtel est complet aux dates demandées."
+  utter_provide_price:
+  - text: "La chambre est à {price} euros la nuit."
+  utter_amenity_info:
+  - text: "L'hôtel {hotel_name} n'a pas de piscine."
+  - text: "L'hôtel {hotel_name} a un jacuzzi."
+  utter_pets_accepted:
+  - text: "Oui, les animaux sont acceptés dans cet hôtel."
+  utter_pets_not_accepted:
+  - text: "Non, les animaux ne sont pas acceptés dans cet hôtel."
+  utter_confirm_booking_prompt:
+  - text: "Une chambre est disponible correspondant à vos critères. Est-ce que je vous réserve cette chambre ?"
+  utter_booking_complete:
+  - text: "J'effectue votre réservation. Le numéro de dossier de votre réservation est le {booking_id}. Le montant de votre séjour s'élève à {total_price} euros."
+  utter_goodbye:
+  - text: "Merci d'avoir utilisé le serveur vocal MEDIA. Au revoir."
+  utter_ask_more_info:
+  - text: "Souhaitez-vous obtenir d'autres informations ?"
+  - text: "Désirez-vous d'autres informations ?"
+actions:
+- action_search_hotels
+- action_book_hotel
+- action_provide_hotel_info

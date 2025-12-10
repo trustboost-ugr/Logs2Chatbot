@@ -1,0 +1,11 @@
+{
+  "acc_mean": 1.0,
+  "acc_lo": 1.0,
+  "acc_hi": 1.0,
+  "f1_mean": 1.0,
+  "f1_lo": 1.0,
+  "f1_hi": 1.0,
+  "n_rows": 1,
+  "n_boot": 2000,
+  "alpha": 0.05
+}

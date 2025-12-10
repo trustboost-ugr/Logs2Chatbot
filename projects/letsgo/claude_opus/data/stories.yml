@@ -1,0 +1,17 @@
+version: "3.1"
+
+stories:
+
+- story: request next bus (utter-only, rule-aligned)
+  steps:
+  - intent: request_next_bus
+  - action: utter_searching
+  - action: utter_find_next_bus
+  - action: utter_follow_up
+
+- story: request previous bus (utter-only, rule-aligned)
+  steps:
+  - intent: request_previous_bus
+  - action: utter_searching
+  - action: utter_find_previous_bus
+  - action: utter_follow_up

@@ -1,0 +1,114 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - request_bus_schedule
+  - request_next_bus
+  - request_previous_bus
+  - affirm
+  - deny
+  - help                 # keep only if you have NLU/examples for it
+  - nlu_fallback
+  - inform
+
+entities:
+  - bus_route
+  - departure
+  - destination
+  - departure_time
+  - location
+
+forms:
+  schedule_form:
+    required_slots:
+      - bus_route
+      - departure
+      - destination
+      - departure_time
+
+slots:
+  bus_route:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: bus_route
+        conditions: [{active_loop: schedule_form, requested_slot: bus_route}]
+      - type: from_text
+        conditions: [{active_loop: schedule_form, requested_slot: bus_route}]
+
+  departure:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: location
+        conditions: [{active_loop: schedule_form, requested_slot: departure}]
+      - type: from_text
+        conditions: [{active_loop: schedule_form, requested_slot: departure}]
+
+  destination:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: location
+        conditions: [{active_loop: schedule_form, requested_slot: destination}]
+      - type: from_text
+        conditions: [{active_loop: schedule_form, requested_slot: destination}]
+
+  departure_time:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: time           # if you already have a time entity
+        conditions:
+          - active_loop: schedule_form
+            requested_slot: departure_time
+      - type: from_text        # <-- accept “5 a.m.” as plain text
+        conditions:
+          - active_loop: schedule_form
+            requested_slot: departure_time
+
+responses:
+  utter_greet:
+    - text: "Hi! I can help with bus schedules."
+
+  utter_goodbye:
+    - text: "Goodbye!"
+
+  utter_help:
+    - text: "Tell me your departure, destination, and time."
+
+  # Prompts / confirmations used in stories
+  utter_ask_bus_route:
+    - text: "Which bus route are you interested in?"
+
+  utter_ask_departure:
+    - text: "Where are you leaving from?"
+
+  utter_ask_destination:
+    - text: "Where are you going?"
+
+  utter_ask_departure_time:
+    - text: "When do you want to depart?"
+
+  # Outcome messages referenced in stories
+  utter_find_next_bus:
+    - text: "The next bus is at {departure_time} from {departure} to {destination} on route {bus_route}."
+
+  utter_find_previous_bus:
+    - text: "The previous bus was at {departure_time} from {departure} to {destination} on route {bus_route}."
+
+  utter_find_bus:
+    - text: "Here is the next bus from {departure} to {destination} at {departure_time}: {bus_route}."
+
+  utter_searching:
+    - text: "Let me check the schedule for you."
+
+  utter_follow_up:
+    - text: "Do you need information on another bus?"
+
+  utter_default_fallback:
+    - text: "I'm not sure how to help with that."
+
+actions:
+  - action_provide_schedule

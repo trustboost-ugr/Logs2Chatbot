@@ -1,0 +1,67 @@
+version: "3.1"
+
+rules:
+  - rule: Greet path
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: Help path
+    steps:
+      - intent: help
+      - action: utter_help
+
+  - rule: NLU Fallback path
+    steps:
+      - intent: nlu_fallback
+      - action: utter_default_fallback
+
+  # Optional: if you want the bot to speak after Core fallback
+  - rule: Speak on fallback action
+    steps:
+      - action: action_default_fallback
+      - action: utter_default_fallback
+
+  # Start the schedule form on any of these intents
+  - rule: Start schedule form
+    steps:
+      - or:
+          - intent: request_bus_schedule
+          - intent: ask_bus_schedule
+          - intent: inform
+      - action: schedule_form
+      - active_loop: schedule_form
+
+  # ✅ Correct submit pattern: let the form run one more step,
+  # then Core sees the form returns, and we continue.
+  - rule: Submit schedule form
+    condition:
+      - active_loop: schedule_form
+    steps:
+      - action: schedule_form
+      - active_loop: null
+      - action: utter_searching
+      - action: utter_find_bus
+      - action: utter_follow_up
+
+  # ⛔️ Remove the "Recover to form when slots missing" rule.
+  # It conflicts with Submit rule because both trigger when `requested_slot` becomes null.
+
+  - rule: Previous bus
+    steps:
+      - intent: ask_previous_bus
+      - action: utter_searching
+      - action: utter_find_previous_bus
+      - action: utter_follow_up
+
+  - rule: Next bus
+    steps:
+      - intent: ask_next_bus
+      - action: utter_searching
+      - action: utter_find_next_bus
+      - action: utter_follow_up
+
+  - rule: Handle goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye

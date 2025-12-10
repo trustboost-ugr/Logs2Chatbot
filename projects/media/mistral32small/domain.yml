@@ -1,0 +1,249 @@
+version: "3.1"
+
+intents:
+  - request_hotel
+  - request_hotel_booking
+  - inform_period
+  - inform_city
+  - ask_amenities
+  - ask_price
+#  - check_pets
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - nlu_fallback
+  - request_price
+  - request_amenities
+  - ask_animal_policy
+ # - request_reservation
+ # - request_details
+  - request_availability
+ # - request_hotel_pricing
+  - request_guide
+  - request_booking
+  - inform
+#  - request_hotel_info
+  - help
+#  - reserve_hotel
+#  - inform_district
+#  - inform_exact_dates
+#  - ask_cinema
+#  - inform_hotel_preferences
+#  - inform_neighborhood
+
+entities:
+  - city
+  - dates
+  - hotel_name
+  - hotel_amenities
+  - number_of_rooms
+  - number_of_adults
+  - number_of_children
+  - number_of_nights
+  - animal
+  - cinema
+  - festival
+
+slots:
+  city:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: city
+        conditions:
+          - active_loop: booking_form
+            requested_slot: city
+      - type: from_text           # <— NEW
+        conditions:
+          - active_loop: booking_form
+            requested_slot: city
+
+  dates:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: dates
+        conditions:
+          - active_loop: booking_form
+            requested_slot: dates
+      - type: from_text           # <— NEW (lets you capture “du 3 au 5 octobre”)
+        conditions:
+          - active_loop: booking_form
+            requested_slot: dates
+  num_guests:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+
+  hotel_name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: hotel_name
+  hotel_amenities:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: hotel_amenities
+  number_of_rooms:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: number_of_rooms
+  number_of_adults:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: number_of_adults
+  number_of_children:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: number_of_children
+  number_of_nights:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: number_of_nights
+  animal:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: animal
+  cinema:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: cinema
+  festival:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: festival
+  search_status:
+    type: categorical
+    values: [ "found", "none" ]
+    influence_conversation: true
+    mappings:
+      - type: custom
+  availability:
+    type: categorical
+    values: [ "yes", "no" ]
+    influence_conversation: true
+    mappings:
+      - type: custom
+  booking_id:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+  total_price:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+forms:
+  booking_form:
+    required_slots:
+      - city
+      - dates
+
+responses:
+  utter_greet:
+    - text: "Bienvenue sur le serveur MEDIA système d'informations touristiques et de réservation d'hôtel souhaitez-vous écouter le guide"
+  utter_help:
+    - text: "Je peux vous aider à trouver et réserver des hôtels, ainsi qu'à fournir des informations touristiques. Comment puis-je vous assister aujourd'hui ?"
+  utter_default_fallback:
+    - text: "Désolé, je n'ai pas compris cela. Pouvez-vous reformuler ?"
+    - text: "Je suis désolé, je n'ai pas compris. Pouvez-vous essayer de le dire autrement ?"
+    - text: "Je suis désolé, je n'ai pas compris. Pouvez-vous reformuler votre demande ?"
+  utter_goodbye:
+    - text: "Au revoir nous vous remercions d'avoir utilisé le serveur MEDIA"
+    - text: "Au revoir et merci d’avoir utilisé notre service."
+#  utter_ask_city:
+#    - text: "Indiquez le lieu où vous souhaitez aller"
+  utter_ask_dates:
+    - text: "À {city} quelles sont vos dates de séjour"
+    - text: "Quelles sont vos dates exactes d’arrivée et de départ ?"
+    - text: "Quelles sont vos dates exactes de séjour ?"
+#  utter_ask_hotel_details:
+#    - text: "Quelle information désirez-vous"
+#    - text: "De quels détails d’hôtel avez-vous besoin (adresse, catégorie, services) ?"
+#    - text: "Quels détails de l'hôtel souhaitez-vous (catégorie, localisation, services) ?"
+#  utter_hotel_options:
+#    - text: "Il y a {hotel_count} hôtels correspondant à votre requête {hotel_names} voulez-vous réserver ou avoir plus de détails sur l'un de ces hôtels"
+#    - text: "Voici quelques hôtels correspondant à votre demande."
+#    - text: "Voici quelques hôtels disponibles. Souhaitez-vous les détails ?"
+#  utter_ask_hotel_amenities:
+#    - text: "Quelle information souhaitez-vous sur cet hôtel"
+#    - text: "Quelles commodités recherchez-vous (piscine, jacuzzi, animaux, etc.) ?"
+#    - text: "Quelles commodités vous intéressent (piscine, animaux acceptés, jacuzzi) ?"
+  utter_hotel_amenities:
+    - text: "{hotel_name} {amenity_info}"
+    - text: "Voici les commodités disponibles pour cet hôtel."
+#  utter_ask_reservation:
+#    - text: "Souhaitez-vous réserver dans cet hôtel"
+#    - text: "Souhaitez-vous confirmer la réservation ?"
+#    - text: "Voulez-vous effectuer une réservation maintenant ?"
+#  utter_ask_price:
+#    - text: "Quel type de chambres souhaitez-vous réserver"
+#    - text: "Quel budget avez-vous en tête ?"
+#    - text: "Vous cherchez une fourchette de prix ou le tarif d’un hôtel spécifique ?"
+  utter_hotel_price:
+    - text: "À {hotel_name} la chambre {room_type} est à {price} euros"
+    - text: "Voici les informations de prix pour cet hôtel."
+#  utter_ask_confirm_reservation:
+#    - text: "Voulez-vous réserver cette chambre"
+#    - text: "Souhaitez-vous confirmer la réservation ?"
+#  utter_reservation_confirmation:
+#    - text: "J'effectue votre réservation le numéro de dossier de votre réservation est le {reservation_number} le montant de votre séjour s'élève à {total_price} euros il devra être versé le jour de votre arrivée"
+#  utter_no_availability:
+#    - text: "Cet hôtel est complet aux dates demandées"
+#    - text: "Désolé, aucune disponibilité aux dates demandées."
+#  utter_no_hotels:
+#    - text: "Il n'y a pas d'hôtels satisfaisant à vos critères aux dates demandées"
+#    - text: "Désolé, aucun hôtel ne correspond à ces critères."
+#  utter_ask_guide:
+#    - text: "Souhaitez-vous écouter le guide"
+  utter_ask_more_info:
+    - text: "Souhaitez-vous obtenir d'autres informations"
+  utter_ask_information:
+    - text: "Quelles informations supplémentaires souhaitez-vous ?"
+    - text: "Quelle information touristique recherchez-vous ?"
+#  utter_ask_period:
+#    - text: "Pour quelle période souhaitez-vous séjourner ?"
+#  utter_ask_district:
+#    - text: "Dans quel quartier souhaitez-vous séjourner ?"
+  utter_ask_reserve_or_more_info:
+    - text: "Souhaitez-vous réserver ce choix ou obtenir plus d’informations ?"
+  utter_please_wait:
+    - text: "Veuillez patienter un instant pendant que je vérifie cela pour vous."
+  utter_present_options:
+    - text: >
+        Voici quelques options disponibles. 
+        Souhaitez-vous réserver l’une d’elles ? 
+        Dites “oui” pour réserver la meilleure option, 
+        “plus d’infos” pour des détails, ou donnez le nom de l’hôtel.
+  utter_confirm_booking_prompt:
+    - text: "Votre réservation est presque terminée. Voulez-vous confirmer ?"
+#  utter_book_hotel:
+#    - text: "Je m'occupe de votre réservation maintenant."
+#  utter_search_hotels:
+#    - text: "Je recherche des hôtels pour vous."
+  utter_booking_complete:
+    - text: "C’est réservé. Votre numéro de dossier vous sera communiqué. Le paiement se fera à l’arrivée."
+  utter_hotel_detail:
+    - text: "{hotel_name} est situé à {address}. C'est un hôtel {category} avec les commodités suivantes : {amenities}."
+  utter_ask_num_guests:
+    - text: "Pour combien de personnes ?"
+
+actions: []
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

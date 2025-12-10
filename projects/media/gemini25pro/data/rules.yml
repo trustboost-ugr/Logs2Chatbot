@@ -1,0 +1,136 @@
+version: "3.1"
+
+rules:
+
+# ---------- Hygiene ----------
+- rule: Respond to greeting
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Help path
+  steps:
+  - intent: help
+  - action: utter_help
+
+- rule: NLU Fallback path
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default_fallback
+
+
+# ---------- Start the booking form only on explicit booking/search intents ----------
+# (Do NOT start on generic 'inform' to avoid clashes with room-type messages etc.)
+- rule: Start booking form on hotel query
+  condition:
+  - active_loop: null
+  steps:
+  - or:
+    - intent: request_hotel_search
+    - intent: request_booking
+  - action: booking_form
+  - active_loop: booking_form
+
+
+# ---------- Submit the booking form ----------
+# When the form completes, run search then present options.
+- rule: Submit booking form
+  condition:
+  - active_loop: booking_form
+  steps:
+  - action: booking_form
+  - active_loop: null
+  - action: utter_please_wait
+  - action: action_search_hotels
+  - action: utter_present_options
+
+
+# ---------- From options: user says "oui" → book ----------
+# (Merge your previous two rules into one; no other rule should handle this jump.)
+- rule: Confirm from options → book
+  steps:
+  - action: utter_present_options
+  - intent: confirm
+  - action: utter_please_wait
+  - action: action_book_hotel
+  - action: utter_booking_complete
+  - action: utter_ask_more_info
+
+
+# ---------- From explicit confirm prompt: user says "oui" → book ----------
+- rule: Confirm after prompt → book
+  steps:
+  - action: utter_confirm_booking_prompt
+  - intent: confirm
+  - action: utter_please_wait
+  - action: action_book_hotel
+  - action: utter_booking_complete
+
+
+# ---------- User provides a detail (e.g., "chambre double") after options ----------
+# Scope this so it ONLY fires right after options are shown, not randomly.
+- rule: Capture detail after options then reconfirm
+  steps:
+  - action: utter_present_options
+  - intent: inform
+  - action: action_provide_hotel_info    # stores side detail (e.g., room_type) if present
+  - action: utter_confirm_booking_prompt
+
+
+# ---------- User provides a detail after the confirm prompt ----------
+- rule: Capture detail after confirm prompt then reconfirm
+  steps:
+  - action: utter_confirm_booking_prompt
+  - intent: inform
+  - action: action_provide_hotel_info
+  - action: utter_confirm_booking_prompt
+
+
+# ---------- Amenity Q&A (single-turn) ----------
+- rule: Handle gym question
+  steps:
+  - intent: check_gym
+  - action: utter_hotel_detail
+
+- rule: Handle jacuzzi question
+  steps:
+  - intent: check_jacuzzi
+  - action: utter_hotel_detail
+
+- rule: Handle restaurant question
+  steps:
+  - intent: check_restaurant
+  - action: utter_hotel_detail
+
+- rule: Handle tennis question
+  steps:
+  - intent: check_tennis
+  - action: utter_hotel_detail
+
+# speak on action fallback (prevents silence)
+- rule: Speak on fallback action
+  steps:
+  - action: action_default_fallback
+  - action: utter_default_fallback
+
+# start the booking flow whenever the user provides hotel info
+- rule: Start booking form on hotel query (multi-intent)
+  steps:
+  - or:
+      - intent: request_hotel_search
+      - intent: request_booking
+      - intent: inform
+  - action: booking_form
+  - active_loop: booking_form
+
+# submit the form → do the search and present options
+- rule: Submit booking form
+  condition:
+  - active_loop: booking_form
+  steps:
+  - action: booking_form
+  - active_loop: null
+  - action: utter_please_wait
+  - action: action_search_hotels
+  - action: utter_present_options
+

@@ -1,0 +1,106 @@
+version: "3.1"
+stories:
+- story: Recherche simple et demande d'informations
+  steps:
+  - intent: request_hotel_search
+  - action: utter_ask_city
+  - intent: inform
+    entities:
+    - city: "Lyon"
+  - action: utter_ask_dates
+  - intent: inform
+    entities:
+    - date_reference: "la quatrième semaine de septembre"
+  - action: utter_please_wait
+  - action: action_search_hotels
+  - action: utter_present_options
+  - intent: ask_price
+  - action: action_provide_hotel_info
+  - intent: check_pets
+  - action: action_provide_hotel_info
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: Recherche avec indisponibilité et nouvelle tentative
+  steps:
+  - intent: inform
+    entities:
+    - city: "Lyon"
+    - date_reference: "la quatrième semaine de septembre"
+  - action: utter_please_wait
+  - action: action_search_hotels
+  - action: utter_present_options
+  - intent: request_booking
+  - action: utter_ask_num_rooms
+  - intent: inform
+    entities:
+    - num_rooms: "dix"
+  - action: utter_ask_num_guests
+  - intent: inform
+    entities:
+    - num_adults: "dix personnes"
+  - action: utter_please_wait
+  - action: action_book_hotel
+  - action: utter_no_availability
+  - action: utter_ask_more_info
+  - intent: select_hotel
+    entities:
+    - hotel_name: "Mercure"
+  - action: utter_please_wait
+  - action: action_book_hotel
+  - action: utter_no_availability
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: Réservation réussie après vérification des équipements
+  steps:
+  - intent: inform
+    entities:
+    - city: "Chalon-Sur-Saône"
+    - start_date: "premier"
+    - end_date: "trois décembre"
+  - action: utter_please_wait
+  - action: action_search_hotels
+  - action: utter_present_options
+  - intent: ask_amenities
+  - action: action_provide_hotel_info
+  - intent: check_pets
+  - action: action_provide_hotel_info
+  - intent: request_booking
+  - action: utter_confirm_booking_prompt
+  - intent: confirm
+  - action: action_book_hotel
+  - action: utter_booking_complete
+  - intent: deny
+  - action: utter_goodbye
+
+- story: Parcours multi-villes simplifié
+  steps:
+  - intent: inform
+    entities:
+    - city: "Chambéry"
+    - start_date: "vingt-neuf août"
+    - end_date: "trente août"
+  - action: utter_please_wait
+  - action: action_search_hotels
+  - action: utter_present_options
+  - intent: check_pool
+  - action: action_provide_hotel_info
+  - intent: select_hotel
+    entities:
+    - hotel_name: "Ibis"
+  - intent: request_booking
+  - action: utter_confirm_booking_prompt
+  - intent: confirm
+  - action: action_book_hotel
+  - action: utter_ask_more_info
+  - intent: inform
+    entities:
+    - city: "Nevers"
+    - start_date: "trente août"
+    - end_date: "trente et un"
+  - action: utter_please_wait
+  - action: action_search_hotels
+  - action: utter_present_options
+  - intent: goodbye
+  - action: utter_goodbye

@@ -1,0 +1,64 @@
+version: "3.1"
+rules:
+
+# --- first-turn hygiene ---
+- rule: Greet
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: NLU fallback
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default_fallback
+
+# --- schedule form lifecycle ---
+
+# Start the form on request OR inform (covers one-shot queries)
+- rule: Start schedule form on request or inform
+  steps:
+  - or:
+    - intent: request_bus_schedule
+    - intent: inform
+  - action: schedule_form
+  - active_loop: schedule_form
+
+# Submit schedule form and show a result (utter-only path)
+- rule: Submit schedule form
+  condition:
+  - active_loop: schedule_form
+  steps:
+  - action: schedule_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_searching
+  - action: utter_find_bus
+  - action: utter_follow_up
+
+# --- follow-ups after a result (utter-only) ---
+- rule: Previous bus
+  steps:
+  - intent: request_previous_bus
+  - action: utter_searching
+  - action: utter_find_previous_bus
+  - action: utter_follow_up
+
+- rule: Next bus
+  steps:
+  - intent: request_next_bus
+  - action: utter_searching
+  - action: utter_find_next_bus
+  - action: utter_follow_up
+
+- rule: Speak on fallback
+  steps:
+  - action: action_default_fallback
+  - action: utter_default_fallback
+
+- rule: Answer help then continue form
+  steps:
+  - intent: ask_help
+  - action: utter_help
+  - action: schedule_form
+  - active_loop: schedule_form

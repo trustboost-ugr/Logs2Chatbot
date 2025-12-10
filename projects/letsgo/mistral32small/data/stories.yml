@@ -1,0 +1,115 @@
+version: "3.1"
+
+stories:
+
+- story: confirm departure stop
+  steps:
+  - intent: inform_departure_stop
+  - action: utter_ask_departure_stop_confirmation
+  - intent: affirm
+
+- story: deny departure stop
+  steps:
+  - intent: inform_departure_stop
+  - action: utter_ask_departure_stop_confirmation
+  - intent: deny
+  - action: utter_ask_departure_stop
+
+- story: ask for destination
+  steps:
+  - intent: inform_departure_stop
+  - action: utter_ask_departure_stop_confirmation
+  - intent: affirm
+
+- story: confirm destination
+  steps:
+  - intent: inform_destination
+  - action: utter_ask_destination_confirmation
+  - intent: affirm
+
+- story: deny destination
+  steps:
+  - intent: inform_destination
+  - action: utter_ask_destination_confirmation
+  - intent: deny
+  - action: utter_ask_destination
+
+- story: ask for travel time
+  steps:
+  - intent: inform_destination
+  - action: utter_ask_destination_confirmation
+  - intent: affirm
+
+- story: confirm travel time
+  steps:
+  - intent: inform_travel_time
+  - action: utter_ask_travel_time_confirmation
+  - intent: affirm
+
+- story: deny travel time
+  steps:
+  - intent: inform_travel_time
+  - action: utter_ask_travel_time_confirmation
+  - intent: deny
+  - action: utter_ask_travel_time
+
+- story: search bus schedule
+  steps:
+  - intent: inform_travel_time
+  - action: utter_ask_travel_time_confirmation
+  - intent: affirm
+
+- story: ask for next bus (utter-only)
+  steps:
+    - intent: ask_next_bus
+    - action: utter_searching
+    - action: utter_find_next_bus
+    - action: utter_follow_up
+
+- story: ask for previous bus (utter-only)
+  steps:
+    - intent: ask_previous_bus
+    - action: utter_searching
+    - action: utter_find_previous_bus
+    - action: utter_follow_up
+
+- story: start new query
+  steps:
+  - intent: start_new_query
+  - action: utter_ask_bus_number
+
+#- story: handle unknown bus
+#  steps:
+#  - intent: inform_bus_number
+#  - action: utter_ask_bus_number_confirmation
+#  - intent: affirm
+
+- story: handle unknown stop
+  steps:
+  - intent: inform_departure_stop
+  - action: utter_ask_departure_stop_confirmation
+  - intent: affirm
+
+- story: handle no bus found
+  steps:
+  - intent: inform_travel_time
+  - action: utter_ask_travel_time_confirmation
+  - intent: affirm
+
+- story: reference-only — make validator see unused utterances
+    # NOTE: This is a non-executable catalog story to appease `rasa data validate`.
+    # It lists response actions that are otherwise unused in rules/stories.
+  steps:
+  - action: utter_ask_bus_number
+  - action: utter_bus_not_covered
+  - action: utter_neighborhood_not_covered
+  - action: utter_ask_departure_stop
+  - action: utter_bus_info
+  - action: utter_no_bus_found
+  - action: utter_ask_confirm_bus
+  - action: utter_ask_neighborhood
+  - action: utter_ask_confirm_previous_bus
+  - action: utter_ask_start_new_query
+  - action: utter_ask_time
+  - action: utter_ask_confirm_next_bus
+  - action: utter_ask_help

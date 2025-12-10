@@ -1,0 +1,100 @@
+```yaml
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - ask_schedule
+  - ask_next_bus
+  - ask_previous_bus
+  - start_new_query
+  - help
+  - inform
+  - ask_bus_info
+
+entities:
+  - bus_number
+  - departure_stop
+  - destination_stop
+  - time
+  - neighborhood
+
+slots:
+  bus_number:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: bus_number
+  departure_stop:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: departure_stop
+  destination_stop:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: destination_stop
+  time:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: time
+  neighborhood:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: neighborhood
+
+responses:
+  utter_greet:
+    - text: "Welcome to the CMU Let's Go bus information system. To get help at any time, just say Help or press zero. What can I do for you?"
+  utter_goodbye:
+    - text: "Thank you for using the CMU Let's Go Bus Information System. Goodbye."
+  utter_ask_bus_number:
+    - text: "What bus schedule information are you looking for?"
+  utter_ask_departure_stop:
+    - text: "Leaving from {departure_stop}. Did I get that right?"
+  utter_ask_destination_stop:
+    - text: "Going to {destination_stop}. Is this correct?"
+  utter_ask_time:
+    - text: "When do you wanna travel?"
+  utter_ask_neighborhood:
+    - text: "In what neighborhood is your departure stop?"
+  utter_ask_confirm_bus:
+    - text: "The {bus_number}. Did I get that right?"
+  utter_ask_confirm_next_bus:
+    - text: "I think you want the next bus. Am I right?"
+  utter_ask_confirm_previous_bus:
+    - text: "I think you want the previous bus. Am I right?"
+  utter_ask_start_new_query:
+    - text: "To ask about a different trip, you can say, start a new query. If you are finished, you can say goodbye."
+  utter_ask_help:
+    - text: "I am an automated spoken dialogue system that can give you schedule information for bus routes in Pittsburgh's East End. You can ask me about the following buses: 28X, 54C, 56U, 59U, 61A, 61B, 61C, 61D, 61F, 64A, 69A, and 501. What bus schedule information are you looking for?"
+  utter_no_bus_found:
+    - text: "I'm sorry, but there is no bus that goes between {departure_stop} and {destination_stop} at that time."
+  utter_bus_info:
+    - text: "There is a {bus_number} leaving {departure_stop} at {time}. It will arrive at {destination_stop} at {arrival_time}."
+  utter_bus_not_covered:
+    - text: "I'm sorry but I do not have the schedule for the {bus_number}. The routes I currently cover are the following: 28X, 54C, 56U, 59U, 61A, 61B, 61C, 61D, 61F, 64A, 69A, and 501."
+  utter_neighborhood_not_covered:
+    - text: "I'm sorry but I do not have the schedule for buses serving {destination_stop}. Currently, I only cover some routes in the following neighborhoods: Downtown, Oakland, Shadyside, Squirrel Hill, Homestead, McKeesport, and the airport."
+
+actions:
+  - action_ask_bus_number
+  - action_ask_departure_stop
+  - action_ask_destination_stop
+  - action_ask_time
+  - action_ask_neighborhood
+  - action_ask_confirm_bus
+  - action_ask_confirm_next_bus
+  - action_ask_confirm_previous_bus
+  - action_ask_start_new_query
+  - action_ask_help
+  - action_no_bus_found
+  - action_bus_info
+  - action_bus_not_covered
+  - action_neighborhood_not_covered
+```

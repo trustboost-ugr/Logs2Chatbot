@@ -1,0 +1,142 @@
+version: "3.1"
+intents:
+- greet
+- goodbye
+- request_hotel_search
+- provide_city
+- provide_dates
+- provide_num_rooms
+- provide_num_guests
+- ask_price
+- ask_amenities
+- confirm
+- deny
+- request_booking
+- check_pets
+- report_no_availability
+
+entities:
+- city
+- start_date
+- end_date
+- num_rooms
+- num_guests
+- price
+- amenity
+- pets
+
+slots:
+  city:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+          - active_loop: booking_form
+            requested_slot: city
+
+  start_date:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: booking_form
+        requested_slot: start_date
+
+  end_date:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: booking_form
+        requested_slot: end_date
+
+  num_guests:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+        - active_loop: booking_form
+          requested_slot: num_guests
+
+  price:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: price
+
+  amenity:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: amenity
+
+  pets:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: pets
+
+# --- New: simple form that collects the minimal set for a search ---
+forms:
+  booking_form:
+    required_slots:
+      - city
+      - start_date
+      - end_date
+      - num_guests
+
+responses:
+  utter_greet:
+  - text: "Bonjour, comment puis-je vous aider aujourd'hui ?"
+  
+  utter_goodbye:
+  - text: "Merci d'avoir utilisé notre service, au revoir !"
+  - text: "Au revoir et bonne journée !"
+  
+  utter_ask_city:
+  - text: "Dans quelle ville souhaitez-vous réserver ?"
+  
+  utter_ask_dates:
+  - text: "Quelles sont vos dates de séjour ?"
+  
+  utter_ask_num_rooms:
+  - text: "Combien de chambres souhaitez-vous réserver ?"
+  
+  utter_ask_num_guests:
+  - text: "Pour combien de personnes souhaitez-vous réserver ?"
+  
+  utter_ask_price:
+  - text: "Quel est votre budget pour la chambre ?"
+  - text: "Le tarif pour cette option commence à {price} € par nuit, selon les dates."
+  
+  utter_ask_amenities:
+  - text: "Y a-t-il des équipements spécifiques que vous souhaitez ?"
+  
+  utter_confirm_search:
+  - text: "Je vais chercher des options pour vous."
+  
+  utter_no_availability:
+  - text: "Je suis désolé, il n'y a pas de disponibilité pour ces dates."
+
+  utter_hotel_detail:
+  - text: "Voici les informations demandées sur l’hôtel."
+  - text: "Voici une option disponible : Hôtel Demo, 120€/nuit, animaux acceptés."
+
+  utter_confirm_booking:
+  - text: "Parfait, je confirme votre réservation."
+
+  utter_suggest_alternative:
+  - text: "Je peux vous proposer un autre hôtel aux dates souhaitées."
+
+  utter_ask_start_date:
+  - text: "Quelle est votre date d'arrivée ?"
+
+  utter_ask_end_date:
+  - text: "Quelle est votre date de départ ?"
+
+actions:
+- action_search_hotels
+- action_provide_options

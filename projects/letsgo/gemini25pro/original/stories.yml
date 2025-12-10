@@ -1,0 +1,135 @@
+version: "3.1"
+
+stories:
+- story: Happy Path - Slot Filling
+  steps:
+  - intent: request_bus_schedule
+  - action: bus_schedule_form
+  - active_loop: bus_schedule_form
+  - intent: inform
+    entities:
+    - bus_route: "54C"
+  - slot_was_set:
+    - bus_route: "54C"
+  - action: utter_ok
+  - action: bus_schedule_form
+  - intent: inform
+    entities:
+    - location: "SOUTH HILLS JUNCTION"
+  - slot_was_set:
+    - origin: "SOUTH HILLS JUNCTION"
+  - action: utter_ok
+  - action: bus_schedule_form
+  - intent: inform
+    entities:
+    - location: "NORTH SIDE"
+  - slot_was_set:
+    - destination: "NORTH SIDE"
+  - action: utter_ok
+  - action: bus_schedule_form
+  - intent: inform
+    entities:
+    - time: "NOW"
+  - slot_was_set:
+    - time: "NOW"
+  - action: bus_schedule_form
+  - active_loop: null
+  - action: utter_searching
+  - action: action_find_bus
+  - action: utter_follow_up
+
+- story: Follow-up and Goodbye
+  steps:
+  - intent: inform
+    entities:
+    - location: "SQUIRREL HILL"
+    - location: "CMU"
+    - time: "ONE A M"
+  - action: bus_schedule_form
+  - active_loop: bus_schedule_form
+  - slot_was_set:
+    - origin: "CMU"
+    - destination: "SQUIRREL HILL"
+    - time: "ONE A M"
+  - action: bus_schedule_form
+  - active_loop: null
+  - action: utter_searching
+  - action: action_find_bus
+  - action: utter_follow_up
+  - intent: request_previous_bus
+  - action: utter_searching
+  - action: action_find_previous_bus
+  - action: utter_follow_up
+  - intent: request_next_bus
+  - action: utter_searching
+  - action: action_find_next_bus
+  - action: utter_follow_up
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: One-shot query, failure, and restart
+  steps:
+  - intent: inform
+    entities:
+    - time: "NEXT"
+    - bus_route: "28X"
+    - location: "DOWNTOWN"
+    - location: "THE AIRPORT"
+  - action: bus_schedule_form
+  - active_loop: bus_schedule_form
+  - slot_was_set:
+    - time: "NEXT"
+    - bus_route: "28X"
+    - origin: "DOWNTOWN"
+    - destination: "THE AIRPORT"
+  - action: bus_schedule_form
+  - active_loop: null
+  - action: utter_searching
+  - action: action_find_bus # Assume this action finds no bus
+  - action: utter_no_bus_found_at_time
+  - action: utter_follow_up
+  - intent: start_new_query
+  - action: action_reset_all_slots
+  - action: utter_start_new_query
+  - action: utter_ask_what_can_i_do
+
+- story: Correction Path
+  steps:
+  - intent: inform
+    entities:
+    - bus_route: "54C"
+  - action: bus_schedule_form
+  - active_loop: bus_schedule_form
+  - slot_was_set:
+    - bus_route: "54C"
+  - action: utter_ask_origin # Let's assume the bot asks for origin
+  - intent: inform
+    entities:
+    - location: "NORTH SIDE"
+  - slot_was_set:
+    - origin: "NORTH SIDE"
+  - action: validate_bus_schedule_form # Bot confirms "Leaving from NORTH SIDE..."
+  - intent: deny
+  - action: bus_schedule_form
+  - slot_was_set:
+    - origin: null
+  - action: utter_ask_origin # Bot re-asks for origin
+  - intent: inform
+    entities:
+    - location: "EAST OHIO STREET"
+  - slot_was_set:
+    - origin: "EAST OHIO STREET"
+  - action: bus_schedule_form # Conversation continues
+
+- story: User asks for help
+  steps:
+  - action: utter_greet
+  - action: utter_ask_what_can_i_do
+  - intent: ask_help
+  - action: utter_provide_help
+  - action: utter_ask_what_can_i_do
+  - intent: inform
+    entities:
+    - bus_route: "61C"
+  - action: bus_schedule_form
+  - active_loop: bus_schedule_form

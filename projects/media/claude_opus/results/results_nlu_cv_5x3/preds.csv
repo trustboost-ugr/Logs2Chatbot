@@ -1,0 +1,18 @@
+text,gold,pred,correct
+à Chambéry,provide_city,provide_city,True
+Chalon-Sur-Saône,provide_city,provide_city,True
+du 27 septembre au 2 octobre,provide_dates,provide_dates,True
+du 30 août au 31,provide_dates,provide_dates,True
+la Chaise-Dieu en Auvergne,provide_city,provide_city,True
+Belfort,provide_city,provide_city,True
+du 29 août au 30 août,provide_dates,provide_dates,True
+du 3 au 5 décembre,provide_dates,provide_dates,True
+à Lyon,provide_city,provide_city,True
+Chaumont,provide_city,provide_city,True
+du 1 au 3 décembre,provide_dates,provide_dates,True
+Bourg-en-Bresse,provide_city,provide_city,True
+du 16 au 31 août,provide_dates,provide_dates,True
+du 31 août au 2 septembre,provide_dates,provide_dates,True
+Nevers,provide_city,provide_city,True
+la quatrième semaine de septembre,provide_dates,provide_dates,True
+du 5 au 6 décembre,provide_dates,provide_dates,True

@@ -1,0 +1,137 @@
+version: "3.1"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+intents:
+  - greet
+  - help
+  - nlu_fallback
+  - goodbye
+  - confirm
+  - deny
+  - request_hotel_search
+  - inform
+  - ask_price
+  - ask_amenities
+  - check_pool
+  - check_jacuzzi
+  - check_pets
+  - check_tennis
+  - check_gym
+  - check_restaurant
+  - request_booking
+  - select_hotel
+
+entities:
+  - city
+  - start_date
+  - end_date
+  - date_reference
+  - num_guests
+  - room_type
+
+forms:
+  booking_form:
+    required_slots:
+      - city
+      - start_date  # or date_reference if you prefer
+      - end_date
+      - num_guests
+
+slots:
+  city:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: city
+      - type: from_text
+        conditions:
+          - active_loop: booking_form
+            requested_slot: city
+
+  start_date:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: start_date
+      - type: from_text
+        conditions:
+          - active_loop: booking_form
+            requested_slot: start_date
+
+  end_date:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: end_date
+      - type: from_text
+        conditions:
+          - active_loop: booking_form
+            requested_slot: end_date
+
+  num_guests:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: num_guests
+      - type: from_text
+        conditions:
+          - active_loop: booking_form
+            requested_slot: num_guests
+
+responses:
+  utter_greet:
+  - text: "Bienvenue sur le serveur MEDIA, système d'informations touristiques et de réservation d'hôtel."
+  - text: "Bonjour ! Comment puis-je vous aider ?"
+  utter_help:
+    - text: "Je peux vous aider à trouver et réserver des hôtels. Que souhaitez-vous faire ?"
+  utter_default_fallback:
+  - text: "Désolé, je n'ai pas compris. Pouvez-vous reformuler ?"
+
+  utter_ask_city:
+  - text: "Dans quelle ville souhaitez-vous séjourner ?"
+  - text: "Indiquez le lieu où vous souhaitez aller."
+  utter_ask_start_date:
+  - text: "Quelle est la date d'arrivée ?"
+  - text: "À quelle date comptez-vous arriver ?"
+  utter_ask_end_date:
+  - text: "Quelle est la date de départ ?"
+  - text: "À quelle date comptez-vous repartir ?"
+  utter_ask_num_guests:
+  - text: "Pour combien de personnes ?"
+  - text: "Combien d'adultes sont concernés ?"
+
+  utter_please_wait:
+    - text: "Veuillez patienter, nous procédons à votre recherche."
+  utter_present_options:
+    - text: "J'ai trouvé des hôtels correspondant à votre demande. Souhaitez-vous réserver ou obtenir des informations supplémentaires ?"
+
+  utter_hotel_detail:
+  - text: "Voici les informations sur l’établissement. Souhaitez-vous d’autres précisions ?"
+  utter_ask_dates:
+  - text: "À quelle période souhaitez-vous séjourner ?"
+  - text: "Quelles sont vos dates de séjour ?"
+  utter_ask_num_rooms:
+  - text: "Combien de chambres souhaitez-vous réserver ?"
+  utter_no_availability:
+  - text: "Désolé, il ne reste pas de chambres libres dans cet hôtel."
+  - text: "Cet hôtel est complet aux dates demandées."
+  utter_confirm_booking_prompt:
+  - text: "Une chambre est disponible correspondant à vos critères. Est-ce que je vous réserve cette chambre ?"
+  utter_booking_complete:
+  - text: "J'effectue votre réservation. Le numéro de dossier de votre réservation est le {booking_id}. Le montant de votre séjour s'élève à {total_price} euros."
+  utter_goodbye:
+  - text: "Merci d'avoir utilisé le serveur vocal MEDIA. Au revoir."
+  utter_ask_more_info:
+  - text: "Souhaitez-vous obtenir d'autres informations ?"
+  - text: "Désirez-vous d'autres informations ?"
+
+actions:
+- action_search_hotels
+- action_book_hotel
+- action_provide_hotel_info

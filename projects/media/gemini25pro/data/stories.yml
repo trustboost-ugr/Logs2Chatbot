@@ -1,0 +1,97 @@
+version: "3.1"
+stories:
+
+# Happy path driven by the form + post-submit flow
+- story: Recherche simple (form-driven, then search)
+  steps:
+  - intent: request_hotel_search
+  - action: booking_form
+  - active_loop: booking_form
+
+  # (Optional) user provides some entities mid-form
+  - intent: inform
+  - action: booking_form
+
+  # When all required slots are filled, the submit rule will run:
+  # booking_form -> active_loop: null -> utter_please_wait -> action_search_hotels -> utter_present_options
+
+  # Continue with Q&A after we have results:
+  - intent: ask_price
+  - action: action_provide_hotel_info
+  - intent: check_pets
+  - action: action_provide_hotel_info
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+# Indisponibilité scenario, still form-driven start
+- story: Recherche avec indisponibilité (form-driven start)
+  steps:
+  - intent: inform   # user dumps some criteria directly
+  - action: booking_form
+  - active_loop: booking_form
+
+  # User may keep informing during the form:
+  - intent: inform
+  - action: booking_form
+
+  # After submit, your rule handles please_wait/search/options.
+  # Then user asks to book rooms etc. Put those steps here only AFTER the submit happens
+  - intent: request_booking
+  - action: utter_confirm_booking_prompt
+  - intent: deny
+  - action: utter_goodbye
+
+
+# Successful booking after amenities check (form-driven start)
+- story: Réservation réussie après vérification des équipements (form-driven)
+  steps:
+  - intent: request_hotel_search      # use an explicit intent that starts the form (safer than bare 'inform')
+  - action: booking_form
+  - active_loop: booking_form
+
+  # form ends via your "Submit booking form" rule: utter_please_wait → action_search_hotels → utter_present_options
+
+  - intent: ask_amenities
+  - action: action_provide_hotel_info
+  - intent: check_pets
+  - action: action_provide_hotel_info
+
+  # ask to book
+  - intent: request_booking
+  - action: utter_confirm_booking_prompt
+
+  # STOP here; the rule "Confirm after prompt → book" now takes over
+  - intent: confirm
+  - action: utter_please_wait
+  - action: action_book_hotel
+  - action: utter_booking_complete
+  - action: utter_ask_more_info
+
+# Multi-city example still starts with the form, then post-submit flows
+- story: Parcours multi-villes (form-driven)
+  steps:
+  - intent: request_hotel_search
+  - action: booking_form
+  - active_loop: booking_form
+
+  # after submit rule: utter_please_wait → action_search_hotels → utter_present_options
+
+  - intent: select_hotel
+  - action: action_provide_hotel_info     # optional: capture hotel_name or side prefs
+  - intent: request_booking
+  - action: utter_confirm_booking_prompt
+
+  # STOP; let the rule handle confirm → please_wait → book → booking_complete → ask_more_info
+  - intent: confirm
+  - action: utter_please_wait
+  - action: action_book_hotel
+  - action: utter_booking_complete
+  - action: utter_ask_more_info
+
+- story: Confirm right after options
+  steps:
+  # assume we already showed options via the submit rule
+  - intent: confirm
+  # STOP; rule "Confirm from options → book" will run:
+  # utter_please_wait → action_book_hotel → utter_booking_complete → utter_ask_more_info

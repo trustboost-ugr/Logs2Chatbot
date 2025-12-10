@@ -1,0 +1,12 @@
+slice,support,accuracy,precision,recall,f1
+SHORT,7,1.0,,,
+ROUTE_CODE,8,1.0,,,
+TEMPORAL,0,0.0,,,
+AMENITY,0,0.0,,,
+DATEISH,9,1.0,,,
+NOT_SHORT,10,1.0,1.0,1.0,1.0
+NOT_ROUTE_CODE,9,1.0,1.0,1.0,1.0
+NOT_TEMPORAL,17,1.0,1.0,1.0,1.0
+NOT_AMENITY,17,1.0,1.0,1.0,1.0
+NOT_DATEISH,8,1.0,,,
+ALL,17,1.0,1.0,1.0,1.0

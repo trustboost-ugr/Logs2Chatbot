@@ -1,0 +1,57 @@
+{
+  "SHORT": {
+    "support": 7,
+    "n_correct": 7,
+    "examples": 3
+  },
+  "ROUTE_CODE": {
+    "support": 8,
+    "n_correct": 8,
+    "examples": 3
+  },
+  "TEMPORAL": {
+    "support": 0,
+    "n_correct": 0,
+    "examples": 0
+  },
+  "AMENITY": {
+    "support": 0,
+    "n_correct": 0,
+    "examples": 0
+  },
+  "DATEISH": {
+    "support": 9,
+    "n_correct": 9,
+    "examples": 3
+  },
+  "NOT_SHORT": {
+    "support": 10,
+    "n_correct": 10,
+    "examples": 3
+  },
+  "NOT_ROUTE_CODE": {
+    "support": 9,
+    "n_correct": 9,
+    "examples": 3
+  },
+  "NOT_TEMPORAL": {
+    "support": 17,
+    "n_correct": 17,
+    "examples": 3
+  },
+  "NOT_AMENITY": {
+    "support": 17,
+    "n_correct": 17,
+    "examples": 3
+  },
+  "NOT_DATEISH": {
+    "support": 8,
+    "n_correct": 8,
+    "examples": 3
+  },
+  "ALL": {
+    "support": 17,
+    "n_correct": 17,
+    "examples": 3
+  }
+}

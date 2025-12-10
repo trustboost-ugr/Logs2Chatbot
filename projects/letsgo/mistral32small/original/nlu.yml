@@ -1,0 +1,98 @@
+```yaml
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - Welcome to the CMU Let's Go bus information system.
+    - To get help at any time, just say Help or press zero.
+    - What can I do for you?
+
+- intent: inform
+  examples: |
+    - 54C
+    - SOUTH HILLS JUNCTION
+    - NORTH SIDE
+    - NOW
+    - YES
+    - BUS SCHEDULE
+    - THE NEW TO SQUIRREL HILL
+    - CMU
+    - ONE A M THAT
+    - WHEN IS THE PREVIOUS BUS WHAT IS THE PREVIOUS BUS
+    - WHEN IS NEXT BUS
+    - GOODBYE
+    - SCHEDULE
+    - WHEN IS THE NEXT BUS
+    - I NEED INFORMATION ON THE 56C
+    - LEBANON ROAD AND NOBLE WATERFRONT
+    - ALL THE WATERWORKS MALL IN HOEMSTEAD
+    - HOMESTEAD
+    - IN THE DOWNTOWN PITTSBURGH
+    - THE NEXT BUS FROM HOMESTEAD DOWNTOWN PITTSBURGH
+    - ELEVEN O'CLOCK
+    - THE
+    - MEAN B
+    - TO WOOD STREET
+    - LEAVING NORTH SIDE
+    - T ROBINSON
+    - THEM YOU DIDN'T EAST OHIO STREET
+    - TO POLISH HILL
+    - YEAH
+
+- intent: request_schedule
+  examples: |
+    - What bus schedule information are you looking for?
+    - For example, you can say, when is the next 28X from DOWNTOWN to THE AIRPORT? or I'd like to go from MCKEESPORT to HOMESTEAD tomorrow at 10 a.m..
+
+- intent: request_help
+  examples: |
+    - I am an automated spoken dialogue system that can give you schedule information for bus routes in Pittsburgh's East End. You can ask me about the following buses: 28X, 54C, 56U, 59U, 61A, 61B, 61C, 61D, 61F, 64A, 69A, and 501.
+
+- intent: request_route_info
+  examples: |
+    - The routes I currently cover are the following: 28X, 54C, 56U, 59U, 61A, 61B, 61C, 61D, 61F, 64A, 69A, and 5 oh 1.
+    - Currently, I only cover some routes in the following neighborhoods: Downtown, Oakland, Shadyside, Squirrel Hill, Homestead, McKeesport, and the airport.
+
+- intent: request_destination
+  examples: |
+    - Where do you want to go?
+    - What is your destination?
+
+- intent: request_departure
+  examples: |
+    - Where do you wanna leave from?
+    - In what neighborhood is your departure stop?
+    - Where in [NORTH SIDE](location) do you want to leave from?
+
+- intent: request_time
+  examples: |
+    - When do you wanna travel?
+    - At what time do you want to travel?
+
+- intent: request_confirmation
+  examples: |
+    - If you want the schedule of the [54C](bus_route) say yes or press one, otherwise say no or press three.
+    - If you a bus for [WATERWORKS MALL](location) say yes or press one, otherwise say no or press three.
+    - If you want to leave from [ROBINSON](location) say yes or press one, otherwise say no or press three.
+
+- intent: request_next_bus
+  examples: |
+    - I think you want the next bus . Am I right?
+    - The next [54C](bus_route) leaves [EAST OHIO STREET AT NASH ISLAND](location) at 7 25 p.m. , and arrives at [DOBSON STREET AT HERRON](location) at 7 51 p.m. .
+    - There is a [54C](bus_route) leaving [EAST OHIO STREET AT NASH ISLAND](location) at 8 50 p.m. . It will arrive at [DOBSON STREET AT HERRON](location) at 9 11 p.m. .
+
+- intent: request_previous_bus
+  examples: |
+    - There is a [54C](bus_route) leaving [EAST OHIO STREET AT NASH ISLAND](location) at 8 50 p.m. . It will arrive at [DOBSON STREET AT HERRON](location) at 9 11 p.m. .
+
+- intent: request_bus_route
+  examples: |
+    - The [56C](bus_route) . Is this correct?
+    - The [56C](bus_route) . Is this correct?
+    - The [56C](bus_route) . Is this correct?
+
+- intent: request_location
+  examples: |
+    - The [B](bus_route) . Did I get that right?
+    -

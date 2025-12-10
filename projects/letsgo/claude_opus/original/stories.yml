@@ -1,0 +1,73 @@
+version: "3.1"
+
+stories:
+
+- story: greet and request schedule
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: request_bus_schedule
+  - action: action_provide_schedule
+
+- story: provide bus route
+  steps:  
+  - action: utter_ask_bus_route
+  - intent: provide_bus_route
+  - action: utter_confirm_bus_route
+  - intent: affirm
+  - action: utter_ask_departure
+
+- story: provide departure
+  steps:
+  - action: utter_ask_departure
+  - intent: provide_departure
+  - action: utter_confirm_departure
+  - intent: affirm
+  - action: utter_ask_destination
+
+- story: provide destination  
+  steps:
+  - action: utter_ask_destination
+  - intent: provide_destination
+  - action: utter_confirm_destination
+  - intent: affirm
+  - action: utter_ask_departure_time
+
+- story: provide departure time
+  steps:  
+  - action: utter_ask_departure_time
+  - intent: provide_departure_time
+  - action: utter_confirm_departure_time
+  - intent: affirm
+  - action: action_provide_schedule
+
+- story: request next bus
+  steps:
+  - action: action_provide_schedule
+  - intent: request_next_bus
+  - action: utter_provide_next_bus
+
+- story: request previous bus
+  steps:
+  - action: action_provide_schedule
+  - intent: request_previous_bus 
+  - action: utter_provide_previous_bus
+
+- story: no bus found
+  steps:
+  - action: action_provide_schedule
+  - action: utter_no_bus_found
+  - intent: start_new_query
+  - action: utter_greet
+
+- story: start new query
+  steps:
+  - action: action_provide_schedule
+  - intent: start_new_query  
+  - action: utter_greet
+
+- story: goodbye
+  steps:
+  - action: action_provide_schedule
+  - intent: goodbye
+  - action: utter_goodbye

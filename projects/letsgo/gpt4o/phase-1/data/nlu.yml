@@ -1,0 +1,60 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - Hello
+    - Hi
+    - Hey
+    - Good morning
+    - Good evening
+
+- intent: request_bus_schedule
+  examples: |
+    - When is the next bus?
+    - When is the next 28X from DOWNTOWN to THE AIRPORT?
+    - I'd like to go from MCKEESPORT to HOMESTEAD tomorrow at 10 a.m.
+    - What time does the 61A leave?
+    - I need information on the 56C
+
+- intent: confirm
+  examples: |
+    - Yes
+    - Correct
+    - That's right
+    - Okay
+
+- intent: deny
+  examples: |
+    - No
+    - That's not right
+    - Incorrect
+
+- intent: provide_location
+  examples: |
+    - Leaving from DOWNTOWN
+    - Going to OAKLAND
+    - From SOUTH SIDE
+    - To MCKEESPORT
+
+- intent: provide_time
+  examples: |
+    - At 10 a.m.
+    - Leaving at 5 p.m.
+    - Now
+    - Tomorrow
+
+- intent: goodbye
+  examples: |
+    - Goodbye
+    - Bye
+    - See you later
+
+- intent: help
+  examples: |
+    - Help
+    - I need assistance
+    - Can you help me?
+
+entities:
+- location
+- time

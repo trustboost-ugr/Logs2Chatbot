@@ -1,0 +1,133 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - deny
+  - request_hotel_search
+  - provide_city
+  - provide_district
+  - provide_dates
+  - provide_nights
+  - provide_num_rooms
+  - provide_num_guests  
+  - ask_price
+  - ask_amenities
+  - check_pool
+  - check_jacuzzi
+  - check_pets
+  - confirm
+  - request_booking
+  - nlu_fallback
+  - provide_room_type
+
+entities:
+  - city
+  - district
+  - start_date
+  - end_date
+  - nights
+  - num_rooms
+  - num_guests
+  - hotel_name
+  - price
+  - amenity
+  - pets
+
+forms:
+  booking_form:
+    required_slots:
+      - city
+      - start_date
+      - end_date
+      - num_guests
+
+slots:
+  city:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: city
+      - type: from_text
+        conditions:
+          - active_loop: booking_form
+            requested_slot: city
+
+  start_date:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: start_date
+      - type: from_text
+        conditions:
+          - active_loop: booking_form
+            requested_slot: start_date
+
+  end_date:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: end_date
+      - type: from_text
+        conditions:
+          - active_loop: booking_form
+            requested_slot: end_date
+
+  num_guests:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: num_guests
+      - type: from_text
+        conditions:
+          - active_loop: booking_form
+            requested_slot: num_guests
+
+responses:
+  utter_greet:
+    - text: "Bonjour, comment puis-je vous aider ?"
+  utter_ask_city:
+    - text: Dans quelle ville souhaitez-vous séjourner ?
+  utter_ask_district:
+    - text: Dans quel quartier désirez-vous que votre hôtel se situe ?
+    - text: "Dans quel quartier souhaitez-vous séjourner ?"
+  utter_ask_dates:
+    - text: Quelles sont vos dates de séjour ?
+  utter_ask_nights:
+    - text: Combien de nuits souhaitez-vous rester ?
+    - text: "Pour combien de nuits ?"
+  utter_ask_num_rooms:
+    - text: Combien de chambres désirez-vous ?
+  utter_ask_num_guests:
+    - text: Pour combien de personnes ?
+  utter_confirm_search:
+    - text: Je recherche des hôtels correspondant à vos critères.
+  utter_suggest_hotel:
+    - text: "Voici les hôtels trouvés : {hotel_name}. Souhaitez-vous réserver ou avoir plus de détails ?"
+  utter_hotel_detail:
+    - text: "{hotel_name} est un hôtel {amenity}. Le prix de la chambre est de {price} euros."
+  utter_no_availability:
+    - text: Désolé, il n'y a plus de chambres disponibles dans cet hôtel aux dates demandées.
+  utter_suggest_alternative:
+    - text: Voici un autre hôtel correspondant à vos critères. Souhaitez-vous réserver ?
+  utter_confirm_booking:
+    - text: Je confirme votre réservation. Le montant total est de {price} euros. Merci d'avoir utilisé notre service !
+  utter_goodbye:
+    - text: Au revoir et merci d'avoir utilisé le serveur MEDIA.
+  utter_asK_start_date:
+    - text: "Quelle est la date d'arrivée ?"
+  utter_ask_end_date:
+    - text: "Quelle est la date de départ ?"
+  utter_default_fallback:
+    - text: Désolé, je n'ai pas compris. Pouvez-vous reformuler ?
+  utter_searching_hotels:
+    - text: "Je recherche des hôtels pour vous..."
+  utter_ack_room_type:
+    - text: "D'accord pour une chambre {room_type}."
+
+actions:
+  - action_search_hotels
+  - action_provide_hotel_detail  
+  - action_check_availability
+  - action_make_booking
+  - action_default_fallback

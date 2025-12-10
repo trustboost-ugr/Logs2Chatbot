@@ -1,0 +1,140 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - inform
+  - request_hotel
+  - request_details
+  - request_reservation
+  - request_price
+  - request_availability
+  - request_amenities
+  - request_guide
+  - deny
+  - affirm
+
+entities:
+  - city
+  - dates
+  - hotel_name
+  - hotel_amenities
+  - number_of_rooms
+  - number_of_adults
+  - number_of_children
+  - number_of_nights
+  - animal
+  - cinema
+  - festival
+
+slots:
+  city:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: city
+  dates:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: dates
+  hotel_name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: hotel_name
+  hotel_amenities:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: hotel_amenities
+  number_of_rooms:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: number_of_rooms
+  number_of_adults:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: number_of_adults
+  number_of_children:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: number_of_children
+  number_of_nights:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: number_of_nights
+  animal:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: animal
+  cinema:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: cinema
+  festival:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: festival
+
+responses:
+  utter_greet:
+    - text: "Bienvenue sur le serveur MEDIA système d'informations touristiques et de réservation d'hôtel souhaitez-vous écouter le guide"
+  utter_goodbye:
+    - text: "Au revoir nous vous remercions d'avoir utilisé le serveur MEDIA"
+  utter_ask_city:
+    - text: "Indiquez le lieu où vous souhaitez aller"
+  utter_ask_dates:
+    - text: "À {city} quelles sont vos dates de séjour"
+  utter_ask_hotel_details:
+    - text: "Quelle information désirez-vous"
+  utter_hotel_options:
+    - text: "Il y a {hotel_count} hôtels correspondant à votre requête {hotel_names} voulez-vous réserver ou avoir plus de détails sur l'un de ces hôtels"
+  utter_ask_hotel_amenities:
+    - text: "Quelle information souhaitez-vous sur cet hôtel"
+  utter_hotel_amenities:
+    - text: "{hotel_name} {amenity_info}"
+  utter_ask_reservation:
+    - text: "Souhaitez-vous réserver dans cet hôtel"
+  utter_ask_number_of_rooms:
+    - text: "Combien de chambres souhaitez-vous réserver"
+  utter_ask_number_of_adults:
+    - text: "Pour combien d'adultes"
+  utter_ask_number_of_children:
+    - text: "Pour combien d'enfants"
+  utter_ask_number_of_nights:
+    - text: "Pour combien de nuits"
+  utter_ask_animal:
+    - text: "Les animaux sont-ils acceptés dans cet hôtel"
+  utter_ask_price:
+    - text: "Quel type de chambres souhaitez-vous réserver"
+  utter_hotel_price:
+    - text: "À {hotel_name} la chambre {room_type} est à {price} euros"
+  utter_ask_confirm_reservation:
+    - text: "Voulez-vous réserver cette chambre"
+  utter_reservation_confirmation:
+    - text: "J'effectue votre réservation le numéro de dossier de votre réservation est le {reservation_number} le montant de votre séjour s'élève à {total_price} euros il devra être versé le jour de votre arrivée"
+  utter_no_availability:
+    - text: "Cet hôtel est complet aux dates demandées"
+  utter_no_hotels:
+    - text: "Il n'y a pas d'hôtels satisfaisant à vos critères aux dates demandées"
+  utter_ask_guide:
+    - text: "Souhaitez-vous écouter le guide"
+  utter_ask_more_info:
+    - text: "Souhaitez-vous obtenir d'autres informations"
+
+actions:
+  - action_search_hotels
+  - action_check_availability
+  - action_reserve_hotel
+  - action_provide_hotel_details
+  - action_provide_amenities
+  - action_provide_price
+  - action_confirm_reservation

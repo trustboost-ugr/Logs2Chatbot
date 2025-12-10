@@ -1,0 +1,82 @@
+version: "3.1"
+
+rules:
+
+- rule: Start booking form on hotel query (multi-intent)
+  steps:
+    - or:
+        - intent: request_hotel_search
+        - intent: request_booking
+        - intent: provide_city
+        - intent: provide_dates
+    - action: booking_form
+    - active_loop: booking_form
+
+- rule: Submit booking form
+  condition:
+    - active_loop: booking_form
+  steps:
+    - action: booking_form
+    - active_loop: null
+    - action: utter_searching_hotels
+
+# Form slot questions
+
+- rule: form asks for district
+  condition:
+    - active_loop: booking_form
+    - slot_was_set:
+        - requested_slot: district
+  steps:
+    - action: utter_ask_district
+
+- rule: form asks for number of rooms
+  condition:
+    - active_loop: booking_form
+    - slot_was_set:
+        - requested_slot: num_rooms
+  steps:
+    - action: utter_ask_num_rooms
+
+- rule: form asks for number of guests
+  condition:
+    - active_loop: booking_form
+    - slot_was_set:
+        - requested_slot: num_guests
+  steps:
+    - action: utter_ask_num_guests
+
+- rule: form asks for nights
+  condition:
+    - active_loop: booking_form
+    - slot_was_set:
+        - requested_slot: nights
+  steps:
+    - action: utter_ask_nights
+
+# Generic amenity question (covers: ask_amenities)
+- rule: answer generic amenity questions
+  steps:
+    - intent: ask_amenities
+    - action: utter_hotel_detail
+
+# User confirms right after a hotel suggestion (covers: confirm)
+# This ties the confirm intent to the post-suggestion action.
+- rule: user confirms booking after suggestion
+  steps:
+    - action: utter_suggest_hotel
+    - intent: confirm
+    - action: utter_confirm_booking
+
+- rule: Speak on fallback action
+  steps:
+    - action: action_default_fallback
+    - action: utter_default_fallback
+
+- rule: Post-result room type ack
+  condition:
+    - active_loop: null
+  steps:
+    - intent: provide_room_type
+    - action: utter_ack_room_type   # e.g., “D’accord pour une chambre double.”
+    - action: action_listen

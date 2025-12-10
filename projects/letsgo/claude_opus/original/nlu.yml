@@ -1,0 +1,78 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hello
+    - hi
+    - hey
+
+- intent: request_bus_schedule
+  examples: |
+    - when is the next [61A](bus_route) leaving [downtown](departure) to [oakland](destination)
+    - i'd like to go from [mckeesport](departure) to [homestead](destination) tomorrow at [10 am](departure_time)
+    - what time does the [28x](bus_route) leave [downtown](departure) going toward [the airport](destination)
+    - i need the schedule for the [54c](bus_route)
+
+- intent: provide_bus_route
+  examples: |
+    - [61a](bus_route)
+    - [54c](bus_route) 
+    - the [28x](bus_route)
+
+- intent: provide_departure
+  examples: |
+    - leaving from [downtown](departure)
+    - [forbes and murray](departure)
+    - [south hills junction](departure)
+
+- intent: provide_destination
+  examples: |
+    - going to [oakland](destination)
+    - to [the airport](destination)
+    - [mckeesport](destination)
+
+- intent: provide_departure_time
+  examples: |
+    - leaving at [5 am](departure_time)
+    - [6:30 pm](departure_time)
+    - [7:30](departure_time) in the morning
+    - [now](departure_time)
+    - the [next bus](departure_time)
+
+- intent: affirm
+  examples: |
+    - yes
+    - correct
+    - right
+    - that's right
+
+- intent: deny
+  examples: |
+    - no
+    - incorrect
+    - wrong
+    - that's not right
+
+- intent: request_next_bus
+  examples: |
+    - when is the next bus
+    - what time is the next one
+
+- intent: request_previous_bus
+  examples: |
+    - when is the previous bus
+    - what time was the one before
+
+- intent: start_new_query
+  examples: |
+    - start a new query
+    - begin a new search
+    - start over
+
+- intent: goodbye
+  examples: |
+    - goodbye
+    - bye
+    - see you
+    - thank you

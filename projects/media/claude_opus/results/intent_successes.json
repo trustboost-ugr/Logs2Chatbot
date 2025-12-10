@@ -1,0 +1,498 @@
+[
+  {
+    "text": "bienvenue",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.9960796236991882
+    }
+  },
+  {
+    "text": "bonjour",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.9965742826461792
+    }
+  },
+  {
+    "text": "salut",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.996996283531189
+    }
+  },
+  {
+    "text": "au revoir",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.9987066984176636
+    }
+  },
+  {
+    "text": "merci au revoir",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.9976677298545837
+    }
+  },
+  {
+    "text": "bonne journée",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.9978189468383789
+    }
+  },
+  {
+    "text": "non",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.9938737154006958
+    }
+  },
+  {
+    "text": "non merci",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.9913738369941711
+    }
+  },
+  {
+    "text": "je souhaite réserver une chambre",
+    "intent": "request_hotel_search",
+    "intent_prediction": {
+      "name": "request_hotel_search",
+      "confidence": 0.9924593567848206
+    }
+  },
+  {
+    "text": "j'aimerais effectuer une réservation de chambres",
+    "intent": "request_hotel_search",
+    "intent_prediction": {
+      "name": "request_hotel_search",
+      "confidence": 0.9986816048622131
+    }
+  },
+  {
+    "text": "réserver un hôtel",
+    "intent": "request_hotel_search",
+    "intent_prediction": {
+      "name": "request_hotel_search",
+      "confidence": 0.9985693693161011
+    }
+  },
+  {
+    "text": "je voudrais réserver un hôtel",
+    "intent": "request_hotel_search",
+    "intent_prediction": {
+      "name": "request_hotel_search",
+      "confidence": 0.9979526996612549
+    }
+  },
+  {
+    "text": "à Lyon",
+    "intent": "provide_city",
+    "intent_prediction": {
+      "name": "provide_city",
+      "confidence": 0.9996693134307861
+    }
+  },
+  {
+    "text": "la Chaise-Dieu en Auvergne",
+    "intent": "provide_city",
+    "intent_prediction": {
+      "name": "provide_city",
+      "confidence": 0.9989588260650635
+    }
+  },
+  {
+    "text": "à Chambéry",
+    "intent": "provide_city",
+    "intent_prediction": {
+      "name": "provide_city",
+      "confidence": 0.9996153116226196
+    }
+  },
+  {
+    "text": "Chalon-Sur-Saône",
+    "intent": "provide_city",
+    "intent_prediction": {
+      "name": "provide_city",
+      "confidence": 0.9996367692947388
+    }
+  },
+  {
+    "text": "Bourg-en-Bresse",
+    "intent": "provide_city",
+    "intent_prediction": {
+      "name": "provide_city",
+      "confidence": 0.9995194673538208
+    }
+  },
+  {
+    "text": "Chaumont",
+    "intent": "provide_city",
+    "intent_prediction": {
+      "name": "provide_city",
+      "confidence": 0.999749481678009
+    }
+  },
+  {
+    "text": "Nevers",
+    "intent": "provide_city",
+    "intent_prediction": {
+      "name": "provide_city",
+      "confidence": 0.9998137354850769
+    }
+  },
+  {
+    "text": "Belfort",
+    "intent": "provide_city",
+    "intent_prediction": {
+      "name": "provide_city",
+      "confidence": 0.9996366500854492
+    }
+  },
+  {
+    "text": "à proximité",
+    "intent": "provide_district",
+    "intent_prediction": {
+      "name": "provide_district",
+      "confidence": 0.9961666464805603
+    }
+  },
+  {
+    "text": "le quartier en fait ça va être à Lyon donc pour la fête du cheval",
+    "intent": "provide_district",
+    "intent_prediction": {
+      "name": "provide_district",
+      "confidence": 0.9960203766822815
+    }
+  },
+  {
+    "text": "proche du festival de la Chaise-Dieu",
+    "intent": "provide_district",
+    "intent_prediction": {
+      "name": "provide_district",
+      "confidence": 0.996002733707428
+    }
+  },
+  {
+    "text": "la quatrième semaine de septembre",
+    "intent": "provide_dates",
+    "intent_prediction": {
+      "name": "provide_dates",
+      "confidence": 0.9990078806877136
+    }
+  },
+  {
+    "text": "du 27 septembre au 2 octobre",
+    "intent": "provide_dates",
+    "intent_prediction": {
+      "name": "provide_dates",
+      "confidence": 0.9995875954627991
+    }
+  },
+  {
+    "text": "du 16 au 31 août",
+    "intent": "provide_dates",
+    "intent_prediction": {
+      "name": "provide_dates",
+      "confidence": 0.9996298551559448
+    }
+  },
+  {
+    "text": "du 29 août au 30 août",
+    "intent": "provide_dates",
+    "intent_prediction": {
+      "name": "provide_dates",
+      "confidence": 0.9996283054351807
+    }
+  },
+  {
+    "text": "du 1 au 3 décembre",
+    "intent": "provide_dates",
+    "intent_prediction": {
+      "name": "provide_dates",
+      "confidence": 0.9997064471244812
+    }
+  },
+  {
+    "text": "du 3 au 5 décembre",
+    "intent": "provide_dates",
+    "intent_prediction": {
+      "name": "provide_dates",
+      "confidence": 0.9997064471244812
+    }
+  },
+  {
+    "text": "du 5 au 6 décembre",
+    "intent": "provide_dates",
+    "intent_prediction": {
+      "name": "provide_dates",
+      "confidence": 0.9997064471244812
+    }
+  },
+  {
+    "text": "du 30 août au 31",
+    "intent": "provide_dates",
+    "intent_prediction": {
+      "name": "provide_dates",
+      "confidence": 0.9996036887168884
+    }
+  },
+  {
+    "text": "du 31 août au 2 septembre",
+    "intent": "provide_dates",
+    "intent_prediction": {
+      "name": "provide_dates",
+      "confidence": 0.9996654987335205
+    }
+  },
+  {
+    "text": "6 nuits",
+    "intent": "provide_nights",
+    "intent_prediction": {
+      "name": "provide_nights",
+      "confidence": 0.9964321851730347
+    }
+  },
+  {
+    "text": "7 nuits",
+    "intent": "provide_nights",
+    "intent_prediction": {
+      "name": "provide_nights",
+      "confidence": 0.9964321851730347
+    }
+  },
+  {
+    "text": "pour 2 nuits",
+    "intent": "provide_nights",
+    "intent_prediction": {
+      "name": "provide_nights",
+      "confidence": 0.9952276945114136
+    }
+  },
+  {
+    "text": "10 chambres",
+    "intent": "provide_num_rooms",
+    "intent_prediction": {
+      "name": "provide_num_rooms",
+      "confidence": 0.9977502226829529
+    }
+  },
+  {
+    "text": "1 chambre",
+    "intent": "provide_num_rooms",
+    "intent_prediction": {
+      "name": "provide_num_rooms",
+      "confidence": 0.9972787499427795
+    }
+  },
+  {
+    "text": "une chambre",
+    "intent": "provide_num_rooms",
+    "intent_prediction": {
+      "name": "provide_num_rooms",
+      "confidence": 0.9877737164497375
+    }
+  },
+  {
+    "text": "10 personnes",
+    "intent": "provide_num_guests",
+    "intent_prediction": {
+      "name": "provide_num_guests",
+      "confidence": 0.9969493746757507
+    }
+  },
+  {
+    "text": "2 adultes 1 enfant",
+    "intent": "provide_num_guests",
+    "intent_prediction": {
+      "name": "provide_num_guests",
+      "confidence": 0.997632622718811
+    }
+  },
+  {
+    "text": "pour 2 personnes",
+    "intent": "provide_num_guests",
+    "intent_prediction": {
+      "name": "provide_num_guests",
+      "confidence": 0.9970654845237732
+    }
+  },
+  {
+    "text": "pour un couple un enfant",
+    "intent": "provide_num_guests",
+    "intent_prediction": {
+      "name": "provide_num_guests",
+      "confidence": 0.9970465302467346
+    }
+  },
+  {
+    "text": "j'aimerais connaître le prix",
+    "intent": "ask_price",
+    "intent_prediction": {
+      "name": "ask_price",
+      "confidence": 0.9980757236480713
+    }
+  },
+  {
+    "text": "je voudrais savoir le prix",
+    "intent": "ask_price",
+    "intent_prediction": {
+      "name": "ask_price",
+      "confidence": 0.9985226988792419
+    }
+  },
+  {
+    "text": "quel est le prix",
+    "intent": "ask_price",
+    "intent_prediction": {
+      "name": "ask_price",
+      "confidence": 0.9981753826141357
+    }
+  },
+  {
+    "text": "est-ce qu'il y a une piscine ou un jacuzzi",
+    "intent": "ask_amenities",
+    "intent_prediction": {
+      "name": "ask_amenities",
+      "confidence": 0.9833528995513916
+    }
+  },
+  {
+    "text": "est-ce qu'il y a un terrain de tennis",
+    "intent": "ask_amenities",
+    "intent_prediction": {
+      "name": "ask_amenities",
+      "confidence": 0.99616539478302
+    }
+  },
+  {
+    "text": "est-ce qu'il y a un restaurant",
+    "intent": "ask_amenities",
+    "intent_prediction": {
+      "name": "ask_amenities",
+      "confidence": 0.9941800832748413
+    }
+  },
+  {
+    "text": "quelles sont les commodités",
+    "intent": "ask_amenities",
+    "intent_prediction": {
+      "name": "ask_amenities",
+      "confidence": 0.9955974221229553
+    }
+  },
+  {
+    "text": "est-ce qu'il y a une piscine",
+    "intent": "check_pool",
+    "intent_prediction": {
+      "name": "check_pool",
+      "confidence": 0.9925813674926758
+    }
+  },
+  {
+    "text": "y a-t-il une piscine",
+    "intent": "check_pool",
+    "intent_prediction": {
+      "name": "check_pool",
+      "confidence": 0.9942389726638794
+    }
+  },
+  {
+    "text": "est-ce qu'il y a un jacuzzi",
+    "intent": "check_jacuzzi",
+    "intent_prediction": {
+      "name": "check_jacuzzi",
+      "confidence": 0.9883756637573242
+    }
+  },
+  {
+    "text": "y a-t-il un jacuzzi",
+    "intent": "check_jacuzzi",
+    "intent_prediction": {
+      "name": "check_jacuzzi",
+      "confidence": 0.9934836030006409
+    }
+  },
+  {
+    "text": "est-ce qu'ils acceptent les chiens",
+    "intent": "check_pets",
+    "intent_prediction": {
+      "name": "check_pets",
+      "confidence": 0.9915368556976318
+    }
+  },
+  {
+    "text": "est-ce qu'on peut ramener un chien",
+    "intent": "check_pets",
+    "intent_prediction": {
+      "name": "check_pets",
+      "confidence": 0.9943155646324158
+    }
+  },
+  {
+    "text": "est-ce qu'il y a un accès animaux",
+    "intent": "check_pets",
+    "intent_prediction": {
+      "name": "check_pets",
+      "confidence": 0.9926254153251648
+    }
+  },
+  {
+    "text": "oui",
+    "intent": "confirm",
+    "intent_prediction": {
+      "name": "confirm",
+      "confidence": 0.998705267906189
+    }
+  },
+  {
+    "text": "oui s'il vous plaît",
+    "intent": "confirm",
+    "intent_prediction": {
+      "name": "confirm",
+      "confidence": 0.9981746673583984
+    }
+  },
+  {
+    "text": "d'accord",
+    "intent": "confirm",
+    "intent_prediction": {
+      "name": "confirm",
+      "confidence": 0.9979907274246216
+    }
+  },
+  {
+    "text": "je souhaite réserver",
+    "intent": "request_booking",
+    "intent_prediction": {
+      "name": "request_booking",
+      "confidence": 0.9817314743995667
+    }
+  },
+  {
+    "text": "je voudrais réserver alors",
+    "intent": "request_booking",
+    "intent_prediction": {
+      "name": "request_booking",
+      "confidence": 0.9955957531929016
+    }
+  },
+  {
+    "text": "je vais réserver",
+    "intent": "request_booking",
+    "intent_prediction": {
+      "name": "request_booking",
+      "confidence": 0.9973853230476379
+    }
+  }
+]

@@ -1,0 +1,12 @@
+version: "3.1"
+
+stories:
+
+- story: search hotel happy path
+  steps:
+  - intent: request_hotel_search
+  - action: utter_ask_city
+  - intent: provide_city
+  - action: utter_ask_dates
+  - intent: provide_dates
+  -

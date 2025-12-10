@@ -1,0 +1,31 @@
+version: "3.0"
+stories:
+- story: book_hotel_story
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: request_hotel_search
+  - action: utter_ask_city
+  - intent: provide_city
+    entities:
+    - city: "Lyon"
+  - action: utter_ask_dates
+  - intent: provide_dates
+    entities:
+    - start_date: "25 juillet"
+    - end_date: "31 juillet"
+  - action: utter_ask_num_rooms
+  - intent: provide_num_rooms
+    entities:
+    - num_rooms: "deux"
+  - action: utter_ask_num_guests
+  - intent: provide_num_guests
+    entities:
+    - num_guests: "un couple et un enfant"
+  - action: utter_ask_amenities
+  - intent: ask_amenities
+  - action: utter_confirm_search
+  - action: action_search_hotels
+  - action: action_provide_options
+  - intent: request_booking
+  - action: utter_goodbye

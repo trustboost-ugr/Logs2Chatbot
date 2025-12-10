@@ -1,0 +1,153 @@
+version: "3.1"
+
+intents:
+  - greet
+  - help
+  - nlu_fallback
+  - request_bus_schedule
+  - inform
+  - deny
+  - goodbye
+  - start_new_query
+  - request_next_bus
+  - request_previous_bus
+  - ask_help
+  - affirm
+
+entities:
+  - bus_route
+  - location
+  - time
+
+slots:
+  bus_route:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: bus_route
+      - type: from_text
+        conditions:
+          - active_loop: schedule_form
+            requested_slot: bus_route
+
+  origin:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: location
+        conditions:
+          - active_loop: schedule_form
+            requested_slot: origin
+      - type: from_text
+        conditions:
+          - active_loop: schedule_form
+            requested_slot: origin
+
+  destination:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: location
+        conditions:
+          - active_loop: schedule_form
+            requested_slot: destination
+      - type: from_text
+        conditions:
+          - active_loop: schedule_form
+            requested_slot: destination
+
+  time:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: time
+        conditions:
+          - active_loop: schedule_form
+            requested_slot: time
+      - type: from_text
+        conditions:
+          - active_loop: schedule_form
+            requested_slot: time
+
+forms:
+  schedule_form:
+    required_slots:
+      - bus_route
+      - origin
+      - destination
+      - time
+
+responses:
+  utter_greet:
+  - text: "Welcome to the CMU Let's Go bus information system. To get help at any time, just say Help or press zero."
+
+  utter_help:
+  - text: "I can provide schedule information for bus routes in Pittsburgh's East End. You can ask me about the following buses: 28X, 54C, 56U, 59U, 61A, 61B, 61C, 61D, 61F, 64A, 69A, and 501. For example, you can say, when is the next 28X from DOWNTOWN to THE AIRPORT? or I'd like to go from MCKEESPORT to HOMESTEAD tomorrow at 10 a.m.."
+  - text: "To get started, you can say something like, when is the next 28X from DOWNTOWN to THE AIRPORT? or I'd like to go from MCKEESPORT to HOMESTEAD tomorrow at 10 a.m.."
+
+  utter_default_fallback:
+  - text: "I'm sorry, I didn't understand that. Can you rephrase?"
+  - text: "I didn't get that. Can you say it again?"
+  - text: "Sorry, can you rephrase that?"
+  - text: "I didn't catch that. Can you say it again?"
+  - text: "I'm sorry, I didn't understand that. Can you say it again?"
+
+  utter_ask_what_can_i_do:
+  - text: "What can I do for you?"
+
+  utter_goodbye:
+  - text: "Thank you for using the CMU Let's Go Bus Information System. Goodbye."
+
+  utter_start_new_query:
+  - text: "Okay, let's start from the beginning."
+
+  utter_provide_help:
+  - text: "I am an automated spoken dialogue system that can give you schedule information for bus routes in Pittsburgh's East End. You can ask me about the following buses: 28X, 54C, 56U, 59U, 61A, 61B, 61C, 61D, 61F, 64A, 69A, and 501."
+
+  utter_searching:
+  - text: "Just a minute. Let me check that for you."
+  - text: "Hold on. I'll look that up."
+
+  utter_follow_up:
+  - text: "To get more information about buses related to this trip, you can say, when is the next bus, or, when is the previous bus. To ask about a different trip, you can say, start a new query. If you are finished, you can say goodbye."
+
+  utter_ok:
+  - text: "Okay"
+  - text: "Right"
+  - text: "Alright"
+
+  utter_no_bus_found_at_time:
+  - text: "I'm sorry, but there is no bus that goes between {origin} and {destination} at that time."
+
+  utter_ask_bus_route:
+  - text: "Which route are you taking?"
+
+  utter_ask_origin:
+  - text: "Where are you leaving from?"
+
+  utter_ask_destination:
+  - text: "Where are you going to?"
+
+  utter_ask_time:
+  - text: "When do you want to travel?"
+
+  # “results” as utterances (no custom actions)
+  utter_find_bus:
+  - text: "Here is a bus from {origin} to {destination} around {time} on route {bus_route}."
+
+  utter_find_next_bus:
+  - text: "Here is the next bus from {origin} to {destination} after {time}."
+
+  utter_find_previous_bus:
+  - text: "Here is the previous bus from {origin} to {destination} before {time}."
+
+# No custom actions needed for this utter-only test
+actions:
+  - action_default_fallback
+
+# IMPORTANT: If you ever add a validator, the name must be exactly validate_<formname>
+# For this utter-only run, omit it (or name it validate_schedule_form if you implement it later).

@@ -1,0 +1,17 @@
+assistant_id: "default"
+recipe: default.v1
+language: en
+
+pipeline:
+  - name: WhitespaceTokenizer
+  - name: RegexFeaturizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: DIETClassifier
+    epochs: 40
+    constrain_similarities: true
+  - name: EntitySynonymMapper
+policies:
+  - name: RulePolicy
+  - name: TEDPolicy
+    epochs: 40

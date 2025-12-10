@@ -1,0 +1,202 @@
+version: "3.1"
+nlu:
+
+# ------------ Small talk / flow control ------------
+- intent: greet
+  examples: |
+    - hi
+    - hi!
+    - hello
+    - hello!
+    - hey
+    - hey!
+    - good morning
+    - good evening
+    - hey there
+    - hi there
+    - yo
+    - howdy
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you
+    - see you later
+    - thanks, bye
+    - bye!
+
+- intent: help
+  examples: |
+    - help
+    - can you help me?
+    - i need assistance
+    - what can you do?
+
+- intent: affirm
+  examples: |
+    - yes
+    - yep
+    - correct
+    - that's right
+    - ok
+    - okay
+    - sure
+
+- intent: deny
+  examples: |
+    - no
+    - nope
+    - not really
+    - that's not right
+    - incorrect
+
+#- intent: start_new_query
+#  examples: |
+#    - new search
+#    - start over
+#    - new query
+#    - can we start again?
+#    - let's restart
+
+# ------------ Core task intents (requests) ------------
+# Use this when the user *asks for* schedules, often with verbs ("go", "get to", "leave")
+- intent: request_bus_schedule
+  examples: |
+    - when is the next bus?
+    - i want to go to [chicago](location)
+    - i'd like to go to [oakland](location) tomorrow
+    - how do i get to [the airport](location)?
+    - show me buses from [downtown](location) to [homestead](location)
+    - what time does the [61a](bus_route) leave?
+    - i need information on the [54c](bus_route)
+    - when is the next [28x](bus_route) from [downtown](location) to [the airport](location)?
+    - find a bus from [mckeesport](location) to [homestead](location) at [10 am](departure_time)
+    - get me from [south hills junction](location) to [oakland](location)
+    - I need the [28X](bus_route) from [downtown](location) to [the airport](location) at [5 a.m.](departure_time)
+    - When is the next [61A](bus_route) from [oakland](location) to [carnegie mellon](location)?
+    - Schedule for the [54C](bus_route) from [bloomfield](location) to [waterfront](location) at [6:30 am](time)
+    - when is the next [61A](bus_route) from [oakland](location) to [carnegie mellon](location)?
+    - [28X](bus_route) from [downtown](location) to [the airport](location) at [5 a.m.](departure_time)
+
+- intent: inform
+  examples: |
+    - [28X](bus_route)
+    - [61A](bus_route)
+    - [downtown](location)
+    - [oakland](location)
+    - [lawrenceville](location)
+    - [squirrel hill](location)
+    - [the airport](location)
+    - [now](departure_time)
+    - [5 a.m.](departure_time)
+    - [7:30 in the evening](departure_time)
+    - at [5 a.m.](departure_time)
+    - [6:30 am](departure_time)
+    - [noon](departure_time)
+    - [7:30 in the evening](departure_time)
+    - [now](departure_time)
+    - [shadyside](location)
+    - [waterfront](location)
+    - [downtown](location)
+    - [oakland](location)
+    - [the airport](location)
+
+- intent: request_next_bus
+  examples: |
+    - next bus please
+    - when is the next one?
+    - show next bus
+    - what is the next departure?
+
+- intent: request_previous_bus
+  examples: |
+    - previous bus
+    - earlier bus
+    - when was the last bus?
+    - show earlier departure
+
+# ------------ Slot-filling intents (short answers after bot asks) ------------
+# Keep these SHORT, slot-style, to separate them from request_bus_schedule
+#- intent: provide_bus_route
+#  examples: |
+#    - [61a](bus_route)
+#    - route [61a](bus_route)
+#    - the [28x](bus_route)
+#    - [54c](bus_route)
+
+#- intent: provide_departure
+#  examples: |
+#    - from [downtown](location)
+#    - [south hills junction](location)
+#    - [forbes and murray](location)
+#    - leaving [oakland](location)
+
+#- intent: provide_destination
+#  examples: |
+#    - to [oakland](location)
+#    - to [the airport](location)
+#    - [mckeesport](location)
+#    - to [mckeesport](location)
+#    - [chicago](location)
+
+#- intent: provide_departure_time
+#  examples: |
+#    - [7:30](departure_time)
+#    - [6:30 pm](departure_time)
+#    - [5 am](departure_time)
+#    - at [10 am](departure_time)
+#    - tomorrow at [10 am](departure_time)
+#    - today at [5 pm](departure_time)
+#    - this evening
+#    - tomorrow morning
+
+# ------------ (Optional) add a couple of lookups for robustness ------------
+- lookup: bus_route
+  examples: |
+    - 28X
+    - 54C
+    - 56U
+    - 59U
+    - 61A
+    - 61B
+    - 61C
+    - 61D
+    - 61F
+    - 64
+    - 69A
+    - 501
+
+- lookup: location
+  examples: |
+    - downtown
+    - oakland
+    - shadyside
+    - squirrel hill
+    - greenfield
+    - south side
+    - north shore
+    - bloomfield
+    - lawrenceville
+    - strip district
+    - carnegie mellon
+    - university of pittsburgh
+    - the airport
+    - waterfront
+    - east liberty
+    - south hills
+    - north hills
+    - shadyside
+    - waterfront
+    - downtown
+    - oakland
+    - carnegie mellon
+    - cmu
+    - the airport
+
+# Regex for quick wins on time mentions
+- regex: departure_time
+  examples: |
+    - \b([01]?\d|2[0-3]):[0-5]\d(\s?[ap]m)?\b
+    - \b([1-9]|1[0-2])\s?(am|pm)\b
+

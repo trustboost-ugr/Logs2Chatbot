@@ -1,0 +1,27 @@
+version: "3.1"
+
+stories:
+
+# Small, non-form flows that won’t fight rules
+#- story: no guide
+#  steps:
+#  - intent: deny
+#  - action: utter_ask_information
+
+- story: ask price (utter-only path)
+  steps:
+  - intent: request_price
+  - action: utter_hotel_price
+  - action: utter_ask_reserve_or_more_info
+
+- story: ask amenities (utter-only path)
+  steps:
+  - intent: request_amenities
+  - action: utter_hotel_amenities
+  - action: utter_ask_more_info
+
+- story: ask animal policy (utter-only path)
+  steps:
+  - intent: ask_animal_policy
+  - action: utter_hotel_amenities
+  - action: utter_ask_more_info

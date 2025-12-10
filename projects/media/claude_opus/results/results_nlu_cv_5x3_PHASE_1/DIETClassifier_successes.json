@@ -1,0 +1,387 @@
+[
+  {
+    "text": "à Chambéry",
+    "entities": [
+      {
+        "start": 2,
+        "end": 10,
+        "value": "Chambéry",
+        "entity": "city"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "city",
+        "start": 2,
+        "end": 10,
+        "confidence_entity": 0.8645833730697632,
+        "value": "Chambéry",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "du 1 au 3 décembre",
+    "entities": [
+      {
+        "start": 3,
+        "end": 4,
+        "value": "1",
+        "entity": "start_date"
+      },
+      {
+        "start": 8,
+        "end": 18,
+        "value": "3 décembre",
+        "entity": "end_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "end_date",
+        "start": 3,
+        "end": 4,
+        "confidence_entity": 0.47884196043014526,
+        "value": "1",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "end_date",
+        "start": 8,
+        "end": 18,
+        "confidence_entity": 0.7299109101295471,
+        "value": "3 décembre",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "du 5 au 6 décembre",
+    "entities": [
+      {
+        "start": 3,
+        "end": 4,
+        "value": "5",
+        "entity": "start_date"
+      },
+      {
+        "start": 8,
+        "end": 18,
+        "value": "6 décembre",
+        "entity": "end_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "end_date",
+        "start": 3,
+        "end": 4,
+        "confidence_entity": 0.47884196043014526,
+        "value": "5",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "end_date",
+        "start": 8,
+        "end": 18,
+        "confidence_entity": 0.7299109101295471,
+        "value": "6 décembre",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Chalon-Sur-Saône",
+    "entities": [
+      {
+        "start": 0,
+        "end": 16,
+        "value": "Chalon-Sur-Saône",
+        "entity": "city"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "city",
+        "start": 0,
+        "end": 16,
+        "confidence_entity": 0.805467426776886,
+        "value": "Chalon-Sur-Saône",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "du 27 septembre au 2 octobre",
+    "entities": [
+      {
+        "start": 3,
+        "end": 15,
+        "value": "27 septembre",
+        "entity": "start_date"
+      },
+      {
+        "start": 19,
+        "end": 28,
+        "value": "2 octobre",
+        "entity": "end_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "start_date",
+        "start": 3,
+        "end": 5,
+        "confidence_entity": 0.758342981338501,
+        "value": "27",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "end_date",
+        "start": 19,
+        "end": 28,
+        "confidence_entity": 0.9038338661193848,
+        "value": "2 octobre",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "du 3 au 5 décembre",
+    "entities": [
+      {
+        "start": 3,
+        "end": 4,
+        "value": "3",
+        "entity": "start_date"
+      },
+      {
+        "start": 8,
+        "end": 18,
+        "value": "5 décembre",
+        "entity": "end_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "start_date",
+        "start": 3,
+        "end": 4,
+        "confidence_entity": 0.8714949488639832,
+        "value": "3",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "end_date",
+        "start": 8,
+        "end": 18,
+        "confidence_entity": 0.6412703990936279,
+        "value": "5 décembre",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Nevers",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "Nevers",
+        "entity": "city"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "city",
+        "start": 0,
+        "end": 6,
+        "confidence_entity": 0.5462355613708496,
+        "value": "Nevers",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Belfort",
+    "entities": [
+      {
+        "start": 0,
+        "end": 7,
+        "value": "Belfort",
+        "entity": "city"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "city",
+        "start": 0,
+        "end": 7,
+        "confidence_entity": 0.7705453038215637,
+        "value": "Belfort",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "du 16 au 31 août",
+    "entities": [
+      {
+        "start": 3,
+        "end": 5,
+        "value": "16",
+        "entity": "start_date"
+      },
+      {
+        "start": 9,
+        "end": 16,
+        "value": "31 août",
+        "entity": "end_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "start_date",
+        "start": 3,
+        "end": 5,
+        "confidence_entity": 0.7781928777694702,
+        "value": "16",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "end_date",
+        "start": 9,
+        "end": 16,
+        "confidence_entity": 0.5763219594955444,
+        "value": "31 août",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "du 31 août au 2 septembre",
+    "entities": [
+      {
+        "start": 3,
+        "end": 10,
+        "value": "31 août",
+        "entity": "start_date"
+      },
+      {
+        "start": 14,
+        "end": 25,
+        "value": "2 septembre",
+        "entity": "end_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "start_date",
+        "start": 3,
+        "end": 10,
+        "confidence_entity": 0.9307309985160828,
+        "value": "31 août",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "start_date",
+        "start": 14,
+        "end": 15,
+        "confidence_entity": 0.7231042981147766,
+        "value": "2",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Chaumont",
+    "entities": [
+      {
+        "start": 0,
+        "end": 8,
+        "value": "Chaumont",
+        "entity": "city"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "city",
+        "start": 0,
+        "end": 8,
+        "confidence_entity": 0.9961808919906616,
+        "value": "Chaumont",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "du 29 août au 30 août",
+    "entities": [
+      {
+        "start": 3,
+        "end": 10,
+        "value": "29 août",
+        "entity": "start_date"
+      },
+      {
+        "start": 14,
+        "end": 21,
+        "value": "30 août",
+        "entity": "end_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "start_date",
+        "start": 3,
+        "end": 10,
+        "confidence_entity": 0.5311072468757629,
+        "value": "29 août",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "end_date",
+        "start": 14,
+        "end": 21,
+        "confidence_entity": 0.8333806395530701,
+        "value": "30 août",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "du 30 août au 31",
+    "entities": [
+      {
+        "start": 3,
+        "end": 10,
+        "value": "30 août",
+        "entity": "start_date"
+      },
+      {
+        "start": 14,
+        "end": 16,
+        "value": "31",
+        "entity": "end_date"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "start_date",
+        "start": 3,
+        "end": 10,
+        "confidence_entity": 0.4832322299480438,
+        "value": "30 août",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "end_date",
+        "start": 14,
+        "end": 16,
+        "confidence_entity": 0.8412855267524719,
+        "value": "31",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  }
+]

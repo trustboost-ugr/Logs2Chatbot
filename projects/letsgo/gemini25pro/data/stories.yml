@@ -1,0 +1,44 @@
+version: "3.1"
+stories:
+- story: Happy Path (mirrors submit sequence)
+  steps:
+  - intent: request_bus_schedule
+  - action: schedule_form
+  - active_loop: schedule_form
+
+  # example slot fillings (keep or trim as you like)
+  - intent: inform
+    entities:
+    - bus_route: "54C"
+  - slot_was_set:
+    - bus_route: "54C"
+  - action: schedule_form
+
+  - intent: inform
+    entities:
+    - location: "DOWNTOWN"
+  - slot_was_set:
+    - origin: "DOWNTOWN"
+  - action: schedule_form
+
+  - intent: inform
+    entities:
+    - location: "THE AIRPORT"
+  - slot_was_set:
+    - destination: "THE AIRPORT"
+  - action: schedule_form
+
+  - intent: inform
+    entities:
+    - time: "5 a.m."
+  - slot_was_set:
+    - time: "5 a.m."
+  - action: schedule_form
+
+  # submit point: match the rule exactly
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_searching
+  - action: utter_find_bus
+  - action: utter_follow_up

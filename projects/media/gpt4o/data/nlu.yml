@@ -1,0 +1,100 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - bonjour
+    - salut
+    - bienvenue
+    - bonsoir
+
+- intent: goodbye
+  examples: |
+    - au revoir
+    - à bientôt
+    - merci, au revoir
+
+- intent: request_hotel_search
+  examples: |
+    - je voudrais réserver un hôtel
+    - je souhaite réserver une chambre
+    - je cherche un hôtel
+    - je veux réserver un hôtel
+
+- intent: provide_city
+  examples: |
+    - à Lyon
+    - à Paris
+    - à Soissons
+    - à Nancy
+
+- intent: provide_dates
+  examples: |
+    - du 25 juillet au 31 juillet
+    - pour le troisième week-end de juin
+    - du 19 au 21 août
+    - pour la deuxième semaine d'avril
+
+- intent: provide_num_rooms
+  examples: |
+    - deux chambres
+    - une chambre
+    - trois chambres
+
+- intent: provide_num_guests
+  examples: |
+    - pour un couple et un enfant
+    - pour deux adultes
+    - pour trois personnes
+
+- intent: ask_price
+  examples: |
+    - quel est le prix
+    - combien coûte la chambre
+    - je veux une chambre à moins de cent euros
+
+- intent: ask_amenities
+  examples: |
+    - y a-t-il un parking
+    - est-ce qu'il y a un jacuzzi
+    - y a-t-il une piscine
+
+- intent: confirm
+  examples: |
+    - oui
+    - d'accord
+    - bien sûr
+
+- intent: deny
+  examples: |
+    - non
+    - pas besoin
+    - ce n'est pas nécessaire
+
+- intent: request_booking
+  examples: |
+    - je veux réserver
+    - je souhaite faire une réservation
+    - je vais prendre cette chambre
+
+- intent: check_pets
+  examples: |
+    - les animaux sont-ils acceptés
+    - puis-je amener un chien
+    - est-ce que les chiens sont autorisés
+
+- intent: report_no_availability
+  examples: |
+    - il n'y a pas de disponibilité
+    - pas de chambres disponibles
+    - aucune chambre libre
+    - complet aux dates demandées
+
+entities:
+- city
+- start_date
+- end_date
+- num_rooms
+- num_guests
+- price
+- amenity
+- pets

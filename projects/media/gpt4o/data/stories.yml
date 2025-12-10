@@ -1,0 +1,37 @@
+version: "3.1"
+
+stories:
+- story: book hotel via form
+  steps:
+  - intent: request_hotel_search
+  - action: booking_form
+  - active_loop: booking_form
+  # the form runs here and will auto-utter utter_ask_* based on requested_slot
+  - active_loop: null
+  - action: utter_confirm_search
+  - action: utter_hotel_detail
+
+#- story: Price info (ask_price)
+#  steps:
+#  - intent: ask_price
+#  - action: utter_ask_price
+
+- story: Amenity QnA (check_pets)
+  steps:
+  - intent: check_pets
+  - action: utter_hotel_detail     # or utter_check_pets if you have one
+
+- story: User confirms suggestion (confirm)
+  steps:
+  - intent: confirm
+  - action: utter_confirm_booking   # pick a sensible confirmation response
+
+- story: User declines (deny)
+  steps:
+  - intent: deny
+  - action: utter_suggest_alternative
+
+- story: Polite wrap-up (goodbye)
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye

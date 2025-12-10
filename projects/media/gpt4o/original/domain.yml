@@ -1,0 +1,86 @@
+version: "3.0"
+intents:
+- greet
+- goodbye
+- request_hotel_search
+- provide_city
+- provide_dates
+- provide_num_rooms
+- provide_num_guests
+- ask_price
+- ask_amenities
+- confirm
+- deny
+- request_booking
+- check_pets
+
+entities:
+- city
+- start_date
+- end_date
+- num_rooms
+- num_guests
+- price
+- amenity
+- pets
+
+slots:
+  city:
+    type: text
+    influence_conversation: false
+  start_date:
+    type: text
+    influence_conversation: false
+  end_date:
+    type: text
+    influence_conversation: false
+  num_rooms:
+    type: text
+    influence_conversation: false
+  num_guests:
+    type: text
+    influence_conversation: false
+  price:
+    type: text
+    influence_conversation: false
+  amenity:
+    type: text
+    influence_conversation: false
+  pets:
+    type: text
+    influence_conversation: false
+
+responses:
+  utter_greet:
+  - text: "Bonjour, comment puis-je vous aider aujourd'hui ?"
+  
+  utter_goodbye:
+  - text: "Merci d'avoir utilisé notre service, au revoir !"
+  
+  utter_ask_city:
+  - text: "Dans quelle ville souhaitez-vous réserver ?"
+  
+  utter_ask_dates:
+  - text: "Quelles sont vos dates de séjour ?"
+  
+  utter_ask_num_rooms:
+  - text: "Combien de chambres souhaitez-vous réserver ?"
+  
+  utter_ask_num_guests:
+  - text: "Pour combien de personnes souhaitez-vous réserver ?"
+  
+  utter_ask_price:
+  - text: "Quel est votre budget pour la chambre ?"
+  
+  utter_ask_amenities:
+  - text: "Y a-t-il des équipements spécifiques que vous souhaitez ?"
+  
+  utter_confirm_search:
+  - text: "Je vais chercher des options pour vous."
+  
+  utter_no_availability:
+  - text: "Je suis désolé, il n'y a pas de disponibilité pour ces dates."
+
+actions:
+- action_search_hotels
+- action_provide_options
