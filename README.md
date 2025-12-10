@@ -89,7 +89,7 @@ This environment pins versions for:
 
 ---
 
-## Phase I: Working with the released Rasa projects
+## 3. Working with the released Rasa projects
 
 Each project under `projects/` is a standard Rasa 3.x project. In the Rasa environment:
 
@@ -111,7 +111,7 @@ rasa test nlu --cross-validation --folds 5 --out results/nlu
 
 ---
 
-## Phase II: Running the harness on a project
+## 4. Running the harness on a project
 
 The harness lives in `phase2-harness/` and is implemented in `measure_kpis.py`.
 It:
@@ -125,7 +125,7 @@ It:
    * **Median turns** from first user turn to goal.
    * **Help recovery %** (success rate on probes with a help detour).
 
-### 1. Point the harness to your Rasa project
+### 4.1. Point the harness to your Rasa project
 
 Open `phase2-harness/measure_kpis.py` and adjust the paths / config block at the top so that it knows:
 
@@ -135,7 +135,7 @@ Open `phase2-harness/measure_kpis.py` and adjust the paths / config block at the
 
 These are simple Python constants; no YAML config is required.
 
-### 2. Run the harness
+### 4.2. Run the harness
 
 In the **Rasa environment**:
 
@@ -154,7 +154,7 @@ The metrics it prints correspond directly to the **probe-based KPIs** reported i
 
 ---
 
-## Original artifacts: Regenerating Rasa projects from dialogue logs
+## 5. Regenerating Rasa projects from dialogue logs
 
 Scripts under `generate/` implement the **Logs → LLM → Rasa YAML** pipeline used in the paper:
 
@@ -177,8 +177,7 @@ cd generate
 python <some_generation_script>.py --help
 
 # Example pattern:
-# python generate_letsgo_from_logs.py --input data/letsgo_dialogues.csv --outdir ../projects/letsgo_gpt4o_phase1
-# python generate_media_from_logs.py  --input data/media_dialogues.csv  --outdir ../projects/media_claude_phase1
+# python generate_letsgo_from_logs.py --input data/letsgo_dialogues.csv --outdir ../projects/letsgo_gpt4o/original
 ```
 
 The exact script names and arguments are documented in the docstrings and `--help` of the files in `generate/`.
@@ -222,7 +221,6 @@ In brief, to replicate the main steps of the paper:
      * Per-intent F1.
      * Robustness by slice (short tokens, route codes, temporal/date-ish expressions, amenities).
      * Probe-based KPIs (completion, turns, help-recovery).
-       These are the quantities reported in Sections 4.2–4.4 of the paper.
 ---
 
 ## Citation
