@@ -1,0 +1,22 @@
+# Output must be valid Rasa 3.x YAML with English identifiers; no markdown fences.
+
+Based on the following nlu.yml:
+{{ NLU }}
+and these dialogues:
+{{ DIALOGUES }}
+
+Generate only domain.yml.
+
+domain.yml
+
+1. Define intents, entities, slots, and their mappings based on the dialogues.
+2. For each slot, include its type and any relevant mappings (e.g., from entities or custom logic).
+3. List responses that the system should use, based on the dialogues.
+4. Include any actions mentioned in the dialogues.
+
+Requirements
+
+1. Ensure intents in nlu.yml match those in domain.yml.
+2. Make sure slots have appropriate mappings and types.
+
+Output just the YAML inside ```yaml fences.

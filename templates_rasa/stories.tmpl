@@ -1,0 +1,21 @@
+# Output must be valid Rasa 3.x YAML with English identifiers; no markdown fences.
+
+Based on the following files:
+
+nlu.yml
+{{ NLU }}
+domain.yml
+{{ DOMAIN }}
+and these dialogues:
+{{ DIALOGUES }}
+
+Generate only stories.yml:
+
+1. Extract story structures consistent with the dialogues.
+2. Ensure logical flow; no conflicting transitions.
+
+Requirements
+
+1. Validate that the story structures in stories.yml do not conflict and logically follow from the dialogues.
+
+Output just the YAML inside ```yaml fences.
